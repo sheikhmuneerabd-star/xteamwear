@@ -28,7 +28,7 @@ function Navbar() {
                     <label className={`absolute top-[10px] left-3 transition-all duration-300 ${focus ? '-translate-x-1 opacity-0' : 'translate-x-0 opacity-100'}`}>Search the store</label>
                     <input className='w-full h-full rounded-xl outline-none pl-3 shadowSearch shadow-[inset_0_1px_3px_rgba(0,0,0,0.12)] text-[15px] placeholder-gray-600' type="text" onFocus={() => {setFocus(true), setSearchFocus(!searchFocus)}} onBlur={(e) => {!e.target.value && setFocus(false), setSearchFocus(false)}} />
                     <IoSearch className='absolute bottom-0 right-0 p-[9px] bg-yellow-400 w-[12%] h-full rounded-tr-xl rounded-br-xl transition-all duration-200 hover:bottom-1 cursor-pointer' />
-                    <div className={`bg-white absolute [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 top-[60px] left-0 w-[125%] h-[300px] rounded-md border overflow-y-scroll z-50 ${searchFocus ? 'flex' : 'hidden'}`}>
+                    <div className={`bg-white absolute [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 top-[60px] left-0 w-[125%] h-[300px] rounded-md border overflow-y-auto overflow-x-hidden z-50 ${searchFocus ? 'flex' : 'hidden'}`}>
                         <div className='p-5'>
                             <div className='p-2 border-b'>
                                 <h2 className='font-semibold text-sm'>SUBLIMATED JERSEY</h2>
