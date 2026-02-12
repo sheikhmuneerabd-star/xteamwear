@@ -84,9 +84,9 @@ function Navbar() {
 
                                 <div className='mt-4 flex gap-3'>
                                     <div className='group flex flex-col justify-center'>
-                                        <div className='w-full h-[180px] relative cursor-pointer'>
-                                            <img className='w-full h-full absolute object-cover opacity-0 hover:opacity-100 hover:scale-105 transition-all duration-1000 z-10 group-hover:-translate-y-2' src={orangeShirt} alt="greenShirt" />
-                                            <img className='w-full h-full absolute object-cover hover:opacity-0 transition-all duration-1000 group-hover:-translate-y-2 group-hover:duration-200' src={greenShirt} alt="greenShirt" />
+                                        <div className='w-full h-[180px] group/img group-hover:-translate-y-2 transition-all duration-300 relative cursor-pointer overflow-hidden'>
+                                            <img className='w-full h-full object-cover opacity-100 group-hover/img:opacity-0 transition-opacity duration-700 ease-in-out' src={greenShirt} alt="greenShirt" />
+                                            <img className='w-full h-full absolute top-0 left-0 object-cover opacity-0 group-hover/img:opacity-100 ease-out hover:scale-105 transition-all duration-700' src={orangeShirt} alt="greenShirt" />
                                         </div>
                                         <div className='w-[150px] p-4'>
                                             <span className='text-[11px] line-clamp-2 font-medium hover:text-blue-600 cursor-pointer'>Whirlwind - Men's Sublimated Footbal Lorem ipsum dolor sit amet.</span>
@@ -103,9 +103,9 @@ function Navbar() {
                                         </div>
                                     </div>
                                     <div className='group flex flex-col justify-center'>
-                                        <div className='w-full h-[180px] relative cursor-pointer'>
-                                            <img className='w-full h-full absolute object-cover opacity-0 hover:opacity-100 hover:scale-105 transition-all duration-1000 z-10 group-hover:-translate-y-2' src={orangeShirt} alt="greenShirt" />
-                                            <img className='w-full h-full absolute object-cover hover:opacity-0 transition-all duration-1000 group-hover:-translate-y-2 group-hover:duration-200' src={greenShirt} alt="greenShirt" />
+                                        <div className='w-full h-[180px] group/img group-hover:-translate-y-2 transition-all duration-300 relative cursor-pointer overflow-hidden'>
+                                            <img className='w-full h-full object-cover opacity-100 group-hover/img:opacity-0 transition-opacity duration-700 ease-in-out' src={greenShirt} alt="greenShirt" />
+                                            <img className='w-full h-full absolute top-0 left-0 object-cover opacity-0 group-hover/img:opacity-100 ease-out hover:scale-105 transition-all duration-700' src={orangeShirt} alt="greenShirt" />
                                         </div>
                                         <div className='w-[150px] p-4'>
                                             <span className='text-[11px] line-clamp-2 font-medium hover:text-blue-600 cursor-pointer'>Whirlwind - Men's Sublimated Footbal Lorem ipsum dolor sit amet.</span>
@@ -122,9 +122,9 @@ function Navbar() {
                                         </div>
                                     </div>
                                     <div className='group flex flex-col justify-center'>
-                                        <div className='w-full h-[180px] relative cursor-pointer'>
-                                            <img className='w-full h-full absolute object-cover opacity-0 hover:opacity-100 hover:scale-105 transition-all duration-1000 z-10 group-hover:-translate-y-2' src={orangeShirt} alt="greenShirt" />
-                                            <img className='w-full h-full absolute object-cover hover:opacity-0 transition-all duration-1000 group-hover:-translate-y-2 group-hover:duration-200' src={greenShirt} alt="greenShirt" />
+                                        <div className='w-full h-[180px] group/img group-hover:-translate-y-2 transition-all duration-300 relative cursor-pointer overflow-hidden'>
+                                            <img className='w-full h-full object-cover opacity-100 group-hover/img:opacity-0 transition-opacity duration-700 ease-in-out' src={greenShirt} alt="greenShirt" />
+                                            <img className='w-full h-full absolute top-0 left-0 object-cover opacity-0 group-hover/img:opacity-100 ease-out hover:scale-105 transition-all duration-700' src={orangeShirt} alt="greenShirt" />
                                         </div>
                                         <div className='w-[150px] p-4'>
                                             <span className='text-[11px] line-clamp-2 font-medium hover:text-blue-600 cursor-pointer'>Whirlwind - Men's Sublimated Footbal Lorem ipsum dolor sit amet.</span>
