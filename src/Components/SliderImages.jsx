@@ -20,10 +20,10 @@ function TestimonialSlider() {
   ];
 
   return (
-    <div className="flex gap-8 items-center max-w-6xl mx-auto py-10">
+    <div className="md:flex-row flex flex-col gap-8 justify-center max-w-6xl mx-auto lg:px-0 px-5 py-10">
 
       {/* LEFT TESTIMONIAL */}
-      <div className="bg-[#e8e1db] p-8 rounded-3xl w-[350px] relative">
+      <div className="bg-[#e8e1db] p-8 rounded-3xl lg:w-[350px] md:w-[370px] sm:w-[320px] w-full relative">
         <p className="text-5xl text-amber-700">“</p>
 
         <div className="flex text-orange-400 my-3">
@@ -39,7 +39,7 @@ function TestimonialSlider() {
       </div>
 
       {/* RIGHT SLIDER */}
-      <div className="w-[70%]">
+      <div className="md:w-[70%] w-full">
         <Swiper
           modules={[Navigation, Pagination]}
           spaceBetween={20}

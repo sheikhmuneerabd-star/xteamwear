@@ -1,5 +1,10 @@
 import CategoryBar from "../Components/CategoryBar"
+import CopyRightFooter from "../Components/CopyRightFooter"
 import FactoryCard from "../Components/FactoryCard"
+import FooterContact from "../Components/FooterContact"
+import FooterSearch from "../Components/FooterSearch"
+import LatestCards from "../Components/LatestCards"
+import LatestPostSec from "../Components/LatestPostSec"
 import Navbar from "../Components/Navbar"
 import NavContact from "../Components/NavContact"
 import ShirtCard from "../Components/ShirtCard"
@@ -28,8 +33,12 @@ function Home() {
         <div>
           <h1 className="text-center text-2xl font-medium">LATEST POSTS</h1>
           <p className="text-center text-[15px] text-gray-600 font-medium">Phasellus lorem malesuada ligula pulvinar cosmo</p>
-          
+          <LatestPostSec />
+          <LatestCards />
         </div>
+        <FooterSearch />
+        <FooterContact />
+        <CopyRightFooter />
     </div>
   )
 }
