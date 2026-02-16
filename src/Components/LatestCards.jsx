@@ -3,8 +3,27 @@ import { Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 function LatestCards() {
+    useGSAP(() => {
+        let tl = gsap.timeline();
+        tl.from(".swiperClass1", {
+            y: 50,
+            duration:0.6,
+            opacity:0,
+            stagger:0.2,
+            scrollTrigger:{
+            trigger:".swiperClass1",
+            scroll:"body",
+            scrub:2,
+            once:true,
+            start: "top 100%",
+            end:"top 30%",
+            }
+        })
+    }, []);
 
     const data = [
         {
@@ -26,7 +45,7 @@ function LatestCards() {
     ]
 
   return (
-    <div className="border-t xl:px-[50px] px-[16px]">
+    <div className="border-t postCard xl:px-[50px] px-[16px]">
 
       <Swiper
         modules={[Navigation]}
@@ -54,7 +73,7 @@ function LatestCards() {
 
         {data.map((item,i)=>(
           <SwiperSlide key={i}>
-            <div className="xl:p-6 py-12 border">
+            <div className="xl:p-6 py-12 border swiperClass1">
               <div className="text-center cursor-pointer space-y-2">
                 <h2 className="font-medium text-[17px]">
                   {item.title}

@@ -8,14 +8,34 @@ import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 
 import { useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 function FooterContact() {
     const [openCom, setOpenCom] = useState(false);
     const [openSer, setOpenSer] = useState(false);
     const [openHlp, setOpenHlp] = useState(false);
 
+    useGSAP(() => {
+        let tl = gsap.timeline();
+        tl.from(".footerContact", {
+            y: 50,
+            duration:0.6,
+            opacity:0,
+            stagger:0.2,
+            scrollTrigger:{
+            trigger:".footerContact",
+            scroll:"body",
+            scrub:2,
+            once:true,
+            start: "top 100%",
+            end:"top 30%",
+            }
+        })
+    }, []);
+
   return (
-    <div className='bg-gray-100'>
+    <div className='bg-gray-100 footerContact'>
         <div className='w-[90%] mx-auto hidden md:grid lg:grid-cols-4 md:grid-cols-3'>
             <div className='text-center lg:mr-16'>
                 <h2 className='text-[21px] font-bold text-gray-800'>COMPANY INFO</h2>

@@ -4,7 +4,8 @@ import categoryLogo from '../assets/categoryLogo.webp'
 import { RiArrowRightSLine } from "react-icons/ri";
 import gsap from "gsap";
 import category from "../CatesgoryBarItems";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,10 +31,12 @@ function CategoryBar() {
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
+    
+
   return (
     <div>
         <div className="w-full categoryBackground hidden xl:flex">
-            <div className="w-[92%] h-[47px] mx-auto flex justify-between items-center">
+            <div className="w-[92%] h-[47px] mx-auto flex justify-between items-center category">
                 <div className="relative group/main">
                     <div className="h-[39px] mt-2 flex gap-1">
                         <div>

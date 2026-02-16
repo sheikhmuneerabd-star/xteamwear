@@ -8,8 +8,27 @@ import { Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import { useGSAP } from "@gsap/react";
 
 function LatestPostSec() {
+
+    useGSAP(() => {
+        let tl = gsap.timeline();
+        tl.from(".postPlan", {
+            y: 50,
+            duration:0.6,
+            opacity:0,
+            stagger:0.2,
+            scrollTrigger:{
+            trigger:".postPlan",
+            scroll:"body",
+            scrub:2,
+            once:true,
+            start: "top 100%",
+            end:"top 30%",
+            }
+        })
+    }, []);
 
     const cards = [
         { img: planningImg },
@@ -34,7 +53,7 @@ function LatestPostSec() {
         })
     }
   return (
-    <div className='mt-8'>
+    <div className='mt-8 postPlan'>
 
         <div className='xl:w-[92%] w-[97%] mx-auto md:flex-row hidden md:flex flex-col justify-between'>
             <div className="xl:w-[50%] md:w-[49.2%] border group">
