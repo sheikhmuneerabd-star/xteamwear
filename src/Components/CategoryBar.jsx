@@ -31,8 +31,6 @@ function CategoryBar() {
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    
-
   return (
     <div>
         <div className="w-full categoryBackground hidden xl:flex">

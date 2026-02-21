@@ -113,7 +113,7 @@ function FooterContact() {
                 <div className="border-b border-black cursor-pointer" onClick={() => setOpenCom(!openCom)}>
                     <div className="flex items-center justify-between ml-auto w-[65%] font-medium p-1">
                         <h2 className="text-[20px]">COMPANY INFO</h2>
-                        <span className="text-[17px] mr-1">{openCom ? <FaMinus /> : <FaPlus />}</span>
+                        <span className={`text-[17px] mr-1 ${openCom ? 'rotate-0' : 'rotate-2'}`}>{openCom ? <FaMinus /> : <FaPlus />}</span>
                     </div>
                 </div>
                 <div className={`text-center mb-3 space-y-2 ${openCom ? "block" : "hidden"}`}>
