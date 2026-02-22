@@ -119,6 +119,52 @@ function Navbar() {
         }
     ]
 
+    const [openSearch, setOpenSearch] = useState(false);
+    const searchSideBar = useRef();
+    useEffect(() => {
+        function searchHandleClickOutSide(event) {
+            if(searchSideBar.current && !searchSideBar.current.contains(event.target)) {
+                setOpenSearch(false);
+            }
+        }
+
+        document.addEventListener("mousedown", searchHandleClickOutSide);
+
+        return () => {
+            document.removeEventListener("mousedown", searchHandleClickOutSide);
+        };
+    }, []);
+
+    useEffect(() => {
+        document.body.style.overflow = openSearch ? "hidden" : "";
+    }, [openSearch])
+
+    useEffect(() => {
+        document.body.style.overflow = toggle ? "hidden" : "";
+    }, [toggle])
+
+
+    const [show, setShow] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if(currentScrollY < lastScrollY){
+                setShow(true);
+            }else{
+                setShow(false);
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY]);
+
   return (
     <div>
         {/* full screen */}
@@ -279,160 +325,286 @@ function Navbar() {
         </div>
 
         {/* non full screen */}
-        <div className='w-full h-[54px] bg-white xl:hidden flex'>
-            <div className='w-[97%] flex items-center justify-between mx-auto'>
-                <div className='flex items-center gap-5'>
-                    <div className='relative'>
-                        <HiMiniBars3 className='text-3xl' onClick={() => setToggle(!toggle)} />
-                        <div className={`fixed overflow-scroll top-0 left-0 bg-white h-full z-50 w-[370px] transition-all duration-300 ${toggle ? "translate-x-0" : "-translate-x-full"}`} onBlur={() => setToggle(false)} ref={menuSideBar}>
-                            <div className='p-3 flex justify-between items-center'>
-                                <div className='flex gap-2'>
-                                    <h1 className={`text-lg font-medium transition-all duration-300 ${openMenu ? "text-gray-900" : "text-gray-400"}`} onClick={handleMenu}>Menu</h1>
-                                    <h1 className={`text-lg font-medium transition-all duration-300 ${openCategory ? "text-gray-900" : "text-gray-400"}`} onClick={handleCategory}>Category</h1>
-                                </div>
-                                <div>
-                                    <IoMdClose className='text-[27px]' onClick={() => setToggle(false)} />
-                                </div>
-                            </div>
-                            <div>
-                                {/* Menu Section */}
-                                <div className={`${openMenu ? 'block' : 'hidden'}`}>
-                                    <div className='relative'>
-                                        <div className='flex text-[17px] items-center justify-between border-b border-gray-300 p-3'>
-                                            <h2 className='font-medium'>Home</h2>
-                                        </div>
-                                    </div>
-                                    {
-                                        categoriesMenu.map((cate) => (
-                                            <div key={cate.id} className='relative'>
-                                                <div className='flex text-[17px] items-center justify-between border-b border-gray-300 p-3' onClick={() => setActiveMenu(cate.id)}>
-                                                    <h2 className='font-medium'>{cate.name}</h2>
-                                                    <MdOutlineArrowForwardIos />
-                                                </div>
-                                                <div className={`fixed overflow-scroll top-0 left-0 h-full w-[370px] bg-white z-50 transition-all duration-200 ${activeMenu === cate.id ? "translate-x-0" : "-translate-x-full"}`}>
-                                                    <div className='bg-gray-100'>
-                                                        <div className='flex font-medium justify-between p-3 items-center w-[225px]'>
-                                                            <BsArrowLeft className='text-[24px]' onClick={() => setActiveMenu(null)} />
-                                                            <h2>{cate.name}</h2>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        {cate.items.map((item, index) => (
-                                                            <div className='text-[15px] border-b border-gray-200 p-4' key={index}>{item}</div>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
-
-                                {/* Category Section */}
-                                <div className={`${openCategory ? 'block' : 'hidden'}`}>
-                                    {
-                                        categoriesCategory.map((cateCate) => (
-                                            <div key={cateCate.id} className='relative'>
-                                                <div className='flex text-[17px] items-center justify-between border-b border-gray-300 p-3' onClick={() => setActiveCategory(cateCate.id)}>
-                                                    <h2 className='font-medium'>{cateCate.name}</h2>
-                                                    <MdOutlineArrowForwardIos />
-                                                </div>
-                                                <div className={`fixed overflow-scroll top-0 left-0 h-full w-[370px] bg-white z-50 transition-all duration-200 ${activeCategory === cateCate.id ? "translate-x-0" : "-translate-x-full"}`}>
-                                                    <div className='bg-gray-100'>
-                                                        <div className='flex font-medium justify-between p-3 items-center w-[225px]'>
-                                                            <BsArrowLeft className='text-[24px]' onClick={() => setActiveCategory(null)} />
-                                                            <h2 className=''>{cateCate.name}</h2>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        {
-                                                            cateCate.items.map((item, index) => (
-                                                                <div key={index} className='text-[15px] border-b border-gray-200 p-4'>{item}</div>
-                                                            ))
-                                                        }
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
-                                <div>
-                                    <div className='flex gap-1 items-center p-3 border-b border-gray-300'>
-                                        <HiOutlineUserCircle className='text-[24px]' />
-                                        <span className='text-[16px]'>Sign In</span>
-                                    </div>
-                                    <div className='flex gap-1 items-center p-3 border-b border-gray-300'>
-                                        <RiUserAddLine className='text-[24px]' />
-                                        <span className='text-[16px]'>Create an account</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className='p-3 bg-gray-100'>
-                                        <h2 className='font-medium'>CURRENCY</h2>
-                                    </div>
-                                    <div className="p-[13px] flex justify-between gap-[12px] items-center">
-                                        <div className="flex items-center gap-2 cursor-pointer group">
-                                            <img src="https://flagcdn.com/w40/us.png" className="w-6 h-6 rounded-full" />
-                                            <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">USD</span>
-                                        </div>
-                                        <div className="flex items-center gap-2 cursor-pointer group">
-                                            <img src="https://flagcdn.com/w40/eu.png" className="w-6 h-6 rounded-full" />
-                                            <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">EUR</span>
-                                        </div>
-                                        <div className="flex items-center gap-2 cursor-pointer group">
-                                            <img src="https://flagcdn.com/w40/gb.png" className="w-6 h-6 rounded-full" />
-                                            <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">GBP</span>
-                                        </div>
-                                        <div className="flex items-center gap-2 cursor-pointer group">
-                                            <img src="https://flagcdn.com/w40/ch.png" className="w-6 h-6 rounded-full" />
-                                            <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">CHF</span>
-                                        </div>
-                                    </div>
-                                    <div className="p-[13px] flex gap-[12px] items-center">
-                                        <div className="flex items-center gap-2 cursor-pointer group">
-                                            <img src="https://flagcdn.com/w40/au.png" className="w-6 h-6 rounded-full" />
-                                            <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">AUD</span>
-                                        </div>
-                                        <div className="flex items-center gap-2 cursor-pointer group ml-[18px]">
-                                            <img src="https://flagcdn.com/w40/ca.png" className="w-6 h-6 rounded-full" />
-                                            <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">CAD</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <IoIosSearch className='text-[28px]' />
+        <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 w-full h-[54px] bg-white xl:hidden flex ${show ? "translate-y-0" : "-translate-y-full"}`}>
+                <div className='w-[97%] flex items-center justify-between mx-auto'>
+                    <div className='flex items-center gap-5'>
+                        <div
+                            className={`fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 ${
+                                openSearch || toggle ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                            }`}
+                            onClick={() => {
+                                setOpenSearch(false); 
+                                setToggle(false);
+                            }}
+                        ></div>
                         <div className='relative'>
-                            <div className='bg-white fixed top-0 left-0 w-[370px] h-full z-50'>
+                            <HiMiniBars3 className='text-3xl' onClick={() => setToggle(!toggle)} />
+                            <div className={`fixed overflow-scroll top-0 left-0 bg-white md:w-[370px] max-[320px]:w-[300px] w-[340px] h-full z-50 transition-all duration-300 ${toggle ? "translate-x-0" : "-translate-x-full"}`} ref={menuSideBar}>
                                 <div className='p-3 flex justify-between items-center'>
-                                    <h2 className='font-medium text-lg'>Search</h2>
-                                    <IoMdClose className='text-[27px]' />
+                                    <div className='flex gap-2'>
+                                        <h1 className={`text-lg font-medium transition-all duration-300 ${openMenu ? "text-gray-900" : "text-gray-400"}`} onClick={handleMenu}>Menu</h1>
+                                        <h1 className={`text-lg font-medium transition-all duration-300 ${openCategory ? "text-gray-900" : "text-gray-400"}`} onClick={handleCategory}>Category</h1>
+                                    </div>
+                                    <div>
+                                        <IoMdClose className='text-[27px]' onClick={() => setToggle(false)} />
+                                    </div>
                                 </div>
-                                <div className='p-3'>
-                                    <div className='relative h-[43px]'>
-                                        <label className={`absolute top-[10px] left-3 transition-all duration-300 ${focus ? '-translate-x-1 opacity-0' : 'translate-x-0 opacity-100'}`}>Search product...</label>
-                                        <input className='w-full h-full rounded-md border-b border-gray-300 outline-none pl-3 shadowSearch text-[15px] placeholder-gray-600' type="text" onFocus={() => {setFocus(true), setSearchFocus(!searchFocus)}} onBlur={(e) => {!e.target.value && setFocus(false), setSearchFocus(false)}} />
-                                        <IoSearch className='absolute bottom-0 right-0 p-[9px] w-[12%] h-full rounded-tr-xl rounded-br-xl transition-all duration-200 hover:bottom-1 cursor-pointer' />
+                                <div>
+                                    {/* Menu Section */}
+                                    <div className={`${openMenu ? 'block' : 'hidden'}`}>
+                                        <div className='relative'>
+                                            <div className='flex text-[17px] items-center justify-between border-b border-gray-300 p-3'>
+                                                <h2 className='font-medium'>Home</h2>
+                                            </div>
+                                        </div>
+                                        {
+                                            categoriesMenu.map((cate) => (
+                                                <div key={cate.id} className='relative'>
+                                                    <div className='flex text-[17px] items-center justify-between border-b border-gray-300 p-3' onClick={() => setActiveMenu(cate.id)}>
+                                                        <h2 className='font-medium'>{cate.name}</h2>
+                                                        <MdOutlineArrowForwardIos />
+                                                    </div>
+                                                    <div className={`fixed overflow-scroll top-0 left-0 h-full w-[370px] bg-white z-50 transition-all duration-200 ${activeMenu === cate.id ? "translate-x-0" : "-translate-x-full"}`}>
+                                                        <div className='bg-gray-100'>
+                                                            <div className='flex font-medium justify-between p-3 items-center w-[225px]'>
+                                                                <BsArrowLeft className='text-[24px]' onClick={() => setActiveMenu(null)} />
+                                                                <h2>{cate.name}</h2>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            {cate.items.map((item, index) => (
+                                                                <div className='text-[15px] border-b border-gray-200 p-4' key={index}>{item}</div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+
+                                    {/* Category Section */}
+                                    <div className={`${openCategory ? 'block' : 'hidden'}`}>
+                                        {
+                                            categoriesCategory.map((cateCate) => (
+                                                <div key={cateCate.id} className='relative'>
+                                                    <div className='flex text-[17px] items-center justify-between border-b border-gray-300 p-3' onClick={() => setActiveCategory(cateCate.id)}>
+                                                        <h2 className='font-medium'>{cateCate.name}</h2>
+                                                        <MdOutlineArrowForwardIos />
+                                                    </div>
+                                                    <div className={`fixed overflow-scroll top-0 left-0 h-full w-[370px] bg-white z-50 transition-all duration-200 ${activeCategory === cateCate.id ? "translate-x-0" : "-translate-x-full"}`}>
+                                                        <div className='bg-gray-100'>
+                                                            <div className='flex font-medium justify-between p-3 items-center w-[225px]'>
+                                                                <BsArrowLeft className='text-[24px]' onClick={() => setActiveCategory(null)} />
+                                                                <h2 className=''>{cateCate.name}</h2>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            {
+                                                                cateCate.items.map((item, index) => (
+                                                                    <div key={index} className='text-[15px] border-b border-gray-200 p-4'>{item}</div>
+                                                                ))
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+                                    <div>
+                                        <div className='flex gap-1 items-center p-3 border-b border-gray-300'>
+                                            <HiOutlineUserCircle className='text-[24px]' />
+                                            <span className='text-[16px]'>Sign In</span>
+                                        </div>
+                                        <div className='flex gap-1 items-center p-3 border-b border-gray-300'>
+                                            <RiUserAddLine className='text-[24px]' />
+                                            <span className='text-[16px]'>Create an account</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className='p-3 bg-gray-100'>
+                                            <h2 className='font-medium'>CURRENCY</h2>
+                                        </div>
+                                        <div className="p-[13px] flex justify-between gap-[12px] items-center">
+                                            <div className="flex items-center gap-2 cursor-pointer group">
+                                                <img src="https://flagcdn.com/w40/us.png" className="w-6 h-6 rounded-full" />
+                                                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">USD</span>
+                                            </div>
+                                            <div className="flex items-center gap-2 cursor-pointer group">
+                                                <img src="https://flagcdn.com/w40/eu.png" className="w-6 h-6 rounded-full" />
+                                                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">EUR</span>
+                                            </div>
+                                            <div className="flex items-center gap-2 cursor-pointer group">
+                                                <img src="https://flagcdn.com/w40/gb.png" className="w-6 h-6 rounded-full" />
+                                                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">GBP</span>
+                                            </div>
+                                            <div className="flex items-center gap-2 cursor-pointer group">
+                                                <img src="https://flagcdn.com/w40/ch.png" className="w-6 h-6 rounded-full" />
+                                                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">CHF</span>
+                                            </div>
+                                        </div>
+                                        <div className="p-[13px] flex gap-[12px] items-center">
+                                            <div className="flex items-center gap-2 cursor-pointer group">
+                                                <img src="https://flagcdn.com/w40/au.png" className="w-6 h-6 rounded-full" />
+                                                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">AUD</span>
+                                            </div>
+                                            <div className="flex items-center gap-2 cursor-pointer group ml-[18px]">
+                                                <img src="https://flagcdn.com/w40/ca.png" className="w-6 h-6 rounded-full" />
+                                                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">CAD</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <IoIosSearch className='text-[28px]' onClick={() => setOpenSearch(true)} />
+                        </div>
+                        <div>
+                            <div className='relative'>
+                                <div className={`bg-white fixed top-0 left-0 md:w-[370px] max-[320px]:w-[300px] w-[340px] h-full z-50 transition-all duration-300 ${openSearch ? "translate-x-0" : "-translate-x-full"}`} ref={searchSideBar}>
+                                    <div className='px-4 py-3 flex justify-between items-center'>
+                                        <h2 className='font-medium text-lg'>Search</h2>
+                                        <IoMdClose className='text-[27px]' onClick={() => setOpenSearch(false)} />
+                                    </div>
+                                    <div className='px-4 py-3'>
+                                        <div className='relative h-[43px]'>
+                                            <label className={`absolute top-[10px] left-3 transition-all duration-300 ${focus ? '-translate-x-1 opacity-0' : 'translate-x-0 opacity-100'}`}>Search product...</label>
+                                            <input className='w-full h-full rounded border-b border-gray-300 outline-none pl-3 shadowSearch text-[15px] placeholder-gray-600' type="text" onFocus={() => {setFocus(true), setSearchFocus(!searchFocus)}} onBlur={(e) => {!e.target.value && setFocus(false), setSearchFocus(false)}} />
+                                            <IoSearch className='absolute bottom-0 right-0 p-[9px] w-[11.5%] h-full' />
+                                        </div>
+                                    </div>
+                                    <div className='px-2 py-3 overflow-y-scroll h-[280px] mt-1 w-[95%] mx-auto'>
+                                        <div className='p-2 border-b border-gray-300'>
+                                            <h2 className='font-medium text-[14px]'>SUBLIMATED JERSEY</h2>
+                                        </div>
+                                        <div>
+                                            <div className='flex flex-wrap gap-2 pt-5'>
+                                                <div className='flex gap-1 items-center bg-gray-100 hover:bg-gray-200 cursor-pointer transition-all duration-200 group text-gray-500 py-[6.5px] px-3'>
+                                                    <IoSearch className='group-hover:text-gray-700' />
+                                                    <span className='text-[13px] group-hover:text-gray-700'>uniform pakages</span>
+                                                </div>
+                                                <div className='flex gap-1 items-center bg-gray-100 hover:bg-gray-200 cursor-pointer transition-all duration-200 group text-gray-500 py-[6.5px] px-3'>
+                                                    <IoSearch className='group-hover:text-gray-700' />
+                                                    <span className='text-[13px] group-hover:text-gray-700'>fluorescent jersey</span>
+                                                </div>
+                                            </div>
+                                            <div className='flex flex-wrap gap-2 pt-5 max-[320px]:pt-3'>
+                                                <div className='flex gap-1 items-center bg-gray-100 hover:bg-gray-200 cursor-pointer transition-all duration-200 group text-gray-500 py-[6.5px] px-3'>
+                                                    <IoSearch className='group-hover:text-gray-700' />
+                                                    <span className='text-[13px] group-hover:text-gray-700'>sleeveless jersey</span>
+                                                </div>
+                                                <div className='flex gap-1 items-center bg-gray-100 hover:bg-gray-200 cursor-pointer transition-all duration-200 group text-gray-500 py-[6.5px] px-3'>
+                                                    <IoSearch className='group-hover:text-gray-700' />
+                                                    <span className='text-[13px] group-hover:text-gray-700'>loremous saliduar</span>
+                                                </div>
+                                            </div>
+                                            <div className='flex flex-wrap gap-2 pt-5 max-[320px]:pt-3'>
+                                                <div className='flex gap-1 items-center bg-gray-100 hover:bg-gray-200 cursor-pointer transition-all duration-200 group text-gray-500 py-[6.5px] px-3'>
+                                                    <IoSearch className='group-hover:text-gray-700' />
+                                                    <span className='text-[13px] group-hover:text-gray-700'>long sleeve shirts</span>
+                                                </div>
+                                                <div className='flex gap-1 items-center bg-gray-100 hover:bg-gray-200 cursor-pointer transition-all duration-200 group text-gray-500 py-[6.5px] px-3'>
+                                                    <IoSearch className='group-hover:text-gray-700' />
+                                                    <span className='text-[13px] group-hover:text-gray-700'>shorts & pants</span>
+                                                </div>
+                                            </div>
+                                            <div className='flex flex-wrap gap-2 pt-5 max-[320px]:pt-3'>
+                                                <div className='flex gap-1 items-center bg-gray-100 hover:bg-gray-200 cursor-pointer transition-all duration-200 group text-gray-500 py-[6.5px] px-3'>
+                                                    <IoSearch className='group-hover:text-gray-700' />
+                                                    <span className='text-[13px] group-hover:text-gray-700'>bespoke</span>
+                                                </div>
+                                                <div className='flex gap-1 items-center bg-gray-100 hover:bg-gray-200 cursor-pointer transition-all duration-200 group text-gray-500 py-[6.5px] px-3'>
+                                                    <IoSearch className='group-hover:text-gray-700' />
+                                                    <span className='text-[13px] group-hover:text-gray-700'>socks & accessories</span>
+                                                </div>
+                                            </div>
+                                            <div className='flex flex-wrap gap-2 pt-5 max-[320px]:pt-3'>
+                                                <div className='flex gap-1 items-center bg-gray-100 hover:bg-gray-200 cursor-pointer transition-all duration-200 group text-gray-500 py-[6.5px] px-3'>
+                                                    <IoSearch className='group-hover:text-gray-700' />
+                                                    <span className='text-[13px] group-hover:text-gray-700'>reversible basketball jersey</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='px-2 py-3 border-b border-gray-300'>
+                                            <h2 className='font-medium text-[14px]'>POPULAR PRODUCTS</h2>
+                                        </div>
+                                        <div className='mt-4 flex gap-3 overflow-x-scroll'>
+                                            <div className='group flex flex-col justify-center'>
+                                                <div className='w-full h-[180px] group/img group-hover:-translate-y-2 transition-all duration-300 relative cursor-pointer overflow-hidden'>
+                                                    <img className='w-full h-full object-cover opacity-100 group-hover/img:opacity-0 transition-opacity duration-700 ease-in-out' src={greenShirt} alt="greenShirt" />
+                                                    <img className='w-full h-full absolute top-0 left-0 object-cover opacity-0 group-hover/img:opacity-100 ease-out hover:scale-105 transition-all duration-700' src={orangeShirt} alt="greenShirt" />
+                                                </div>
+                                                <div className='w-[150px] p-4'>
+                                                    <span className='text-[11px] line-clamp-2 font-medium hover:text-blue-600 cursor-pointer'>Whirlwind - Men's Sublimated Footbal Lorem ipsum dolor sit amet.</span>
+                                                    <p className='text-gray-800 font-medium text-[15px] line-through'>Rs.19,053.53</p>
+                                                    <p className='text-gray-800 font-medium text-[15px] line-through'>PKR</p>
+                                                    <p className='text-red-600 font-medium text-[15px]'>Rs.13,645.45</p>
+                                                    <p className='text-red-600 font-medium text-[15px]'>PKR</p>
+                                                    <div className='w-[75%] flex justify-end'>
+                                                        <span className='bg-red-600 px-3 py-[3px] rounded text-[14px] text-white'>(-20%)</span>
+                                                    </div>
+                                                    <div className='w-[30px] mt-3 rounded-full border-[1.4px] p-[2px] border-gray-300'>
+                                                        <img className='rounded-full' title='GREEN & BLACK' src={greenShirt} alt="greenShirt" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='group flex flex-col justify-center'>
+                                                <div className='w-full h-[180px] group/img group-hover:-translate-y-2 transition-all duration-300 relative cursor-pointer overflow-hidden'>
+                                                    <img className='w-full h-full object-cover opacity-100 group-hover/img:opacity-0 transition-opacity duration-700 ease-in-out' src={greenShirt} alt="greenShirt" />
+                                                    <img className='w-full h-full absolute top-0 left-0 object-cover opacity-0 group-hover/img:opacity-100 ease-out hover:scale-105 transition-all duration-700' src={orangeShirt} alt="greenShirt" />
+                                                </div>
+                                                <div className='w-[150px] p-4'>
+                                                    <span className='text-[11px] line-clamp-2 font-medium hover:text-blue-600 cursor-pointer'>Whirlwind - Men's Sublimated Footbal Lorem ipsum dolor sit amet.</span>
+                                                    <p className='text-gray-800 font-medium text-[15px] line-through'>Rs.19,053.53</p>
+                                                    <p className='text-gray-800 font-medium text-[15px] line-through'>PKR</p>
+                                                    <p className='text-red-600 font-medium text-[15px]'>Rs.13,645.45</p>
+                                                    <p className='text-red-600 font-medium text-[15px]'>PKR</p>
+                                                    <div className='w-[75%] flex justify-end'>
+                                                        <span className='bg-red-600 px-3 py-[3px] rounded text-[14px] text-white'>(-20%)</span>
+                                                    </div>
+                                                    <div className='w-[30px] mt-3 rounded-full border-[1.4px] p-[2px] border-gray-300'>
+                                                        <img className='rounded-full' title='GREEN & BLACK' src={greenShirt} alt="greenShirt" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='group flex flex-col justify-center'>
+                                                <div className='w-full h-[180px] group/img group-hover:-translate-y-2 transition-all duration-300 relative cursor-pointer overflow-hidden'>
+                                                    <img className='w-full h-full object-cover opacity-100 group-hover/img:opacity-0 transition-opacity duration-700 ease-in-out' src={greenShirt} alt="greenShirt" />
+                                                    <img className='w-full h-full absolute top-0 left-0 object-cover opacity-0 group-hover/img:opacity-100 ease-out hover:scale-105 transition-all duration-700' src={orangeShirt} alt="greenShirt" />
+                                                </div>
+                                                <div className='w-[150px] p-4'>
+                                                    <span className='text-[11px] line-clamp-2 font-medium hover:text-blue-600 cursor-pointer'>Whirlwind - Men's Sublimated Footbal Lorem ipsum dolor sit amet.</span>
+                                                    <p className='text-gray-800 font-medium text-[15px] line-through'>Rs.19,053.53</p>
+                                                    <p className='text-gray-800 font-medium text-[15px] line-through'>PKR</p>
+                                                    <p className='text-red-600 font-medium text-[15px]'>Rs.13,645.45</p>
+                                                    <p className='text-red-600 font-medium text-[15px]'>PKR</p>
+                                                    <div className='w-[75%] flex justify-end'>
+                                                        <span className='bg-red-600 px-3 py-[3px] rounded text-[14px] text-white'>(-20%)</span>
+                                                    </div>
+                                                    <div className='w-[30px] mt-3 rounded-full border-[1.4px] p-[2px] border-gray-300'>
+                                                        <img className='rounded-full' title='GREEN & BLACK' src={greenShirt} alt="greenShirt" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className='w-[16%]'>
-                    <img src={logo} alt="" />
-                </div>
-                <div className='flex items-center gap-5 mr-2'>
-                    <div>
-                        <PiUserLight className='text-[28px]' />
+                    <div className='md:w-[16%] w-[34%]'>
+                        <img src={logo} alt="" />
                     </div>
-                    <div className='relative'>
-                        <span className='absolute -top-[8px] -right-[9px] text-[13px] bg-black text-white w-6 h-6 flex justify-center items-center rounded-full'>0</span>
-                        <CgShoppingBag className='text-[28px]' />
+                    <div className='flex items-center gap-5 mr-2'>
+                        <div>
+                            <PiUserLight className='text-[28px]' />
+                        </div>
+                        <div className='relative'>
+                            <span className='absolute -top-[8px] -right-[9px] text-[13px] bg-black text-white w-6 h-6 flex justify-center items-center rounded-full'>0</span>
+                            <CgShoppingBag className='text-[28px]' />
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
   )
