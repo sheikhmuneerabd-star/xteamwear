@@ -322,7 +322,7 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>              
 
         {/* non full screen */}
         <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 w-full h-[54px] bg-white xl:hidden flex ${show ? "translate-y-0" : "-translate-y-full"}`}>
