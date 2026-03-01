@@ -143,28 +143,6 @@ function Navbar() {
         document.body.style.overflow = toggle ? "hidden" : "";
     }, [toggle])
 
-
-    const [show, setShow] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-
-            if(currentScrollY < lastScrollY){
-                setShow(true);
-            }else{
-                setShow(false);
-            }
-
-            setLastScrollY(currentScrollY);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [lastScrollY]);
-
   return (
     <div>
         {/* full screen */}
@@ -325,18 +303,16 @@ function Navbar() {
         </div>              
 
         {/* non full screen */}
-        <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 w-full h-[54px] bg-white xl:hidden flex ${show ? "translate-y-0" : "-translate-y-full"}`}>
+        <div className={`fixed top-0 left-0 right-0 z-50 shadow-sm shadow-gray-200 transition-all duration-200 w-full h-[54px] bg-white xl:hidden flex`}>
+            {(openSearch || toggle) && (<div
+                className="fixed inset-0 bg-black/50 z-40"
+                onClick={() => {
+                    setOpenSearch(false);
+                    setToggle(false);
+                }}
+                ></div>)}
                 <div className='w-[97%] flex items-center justify-between mx-auto'>
                     <div className='flex items-center gap-5'>
-                        <div
-                            className={`fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 ${
-                                openSearch || toggle ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                            }`}
-                            onClick={() => {
-                                setOpenSearch(false); 
-                                setToggle(false);
-                            }}
-                        ></div>
                         <div className='relative'>
                             <HiMiniBars3 className='text-3xl' onClick={() => setToggle(!toggle)} />
                             <div className={`fixed overflow-scroll top-0 left-0 bg-white md:w-[370px] max-[320px]:w-[300px] w-[340px] h-full z-50 transition-all duration-300 ${toggle ? "translate-x-0" : "-translate-x-full"}`} ref={menuSideBar}>

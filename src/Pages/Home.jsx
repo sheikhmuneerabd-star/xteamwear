@@ -1,13 +1,7 @@
 import { useGSAP } from "@gsap/react"
-import CategoryBar from "../Components/CategoryBar"
-import CopyRightFooter from "../Components/CopyRightFooter"
 import FactoryCard from "../Components/FactoryCard"
-import FooterContact from "../Components/FooterContact"
-import FooterSearch from "../Components/FooterSearch"
 import LatestCards from "../Components/LatestCards"
 import LatestPostSec from "../Components/LatestPostSec"
-import Navbar from "../Components/Navbar"
-import NavContact from "../Components/NavContact"
 import ShirtCard from "../Components/ShirtCard"
 import TestimonialSlider from "../Components/SliderImages"
 import TeamImage from "../Components/TeamImage"
@@ -75,9 +69,6 @@ function Home() {
     }, []);
   return (
     <div>
-        <NavContact />
-        <Navbar />
-        <CategoryBar />
         <TeamImage />
         <h3 className="text-center text-2xl font-medium xl:mt-0 mt-5 xteamwearA">XTEAMWEAR ADVANTAGES</h3>
         <FactoryCard />
@@ -97,9 +88,6 @@ function Home() {
           <LatestPostSec />
           <LatestCards />
         </div>
-        <FooterSearch />
-        <FooterContact />
-        <CopyRightFooter />
     </div>
   )
 }

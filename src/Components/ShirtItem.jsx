@@ -1,14 +1,16 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 function ShirtItem({ shirt }) {
     const [active, setActive] = useState(shirt.variants[0]);
 
   return (
-        <div className='group rounded-md shadow-lg shadow-gray-300 p-4'>
+        <Link to={`/cardPage/${shirt.id}/${active.color}`}>
+            <div className='group rounded-md shadow-lg shadow-gray-300 p-4'>
                 <div>
                     <div className='cursor-pointer group/img group-hover:-translate-y-2 transition-all duration-300 relative rounded aspect-[4/5] overflow-hidden'>
-                        <img className='w-full h-full object-cover opacity-100 group-hover/img:opacity-0 transition-opacity duration-700 ease-in-out' src={active.front} alt="" />
-                        <img className='w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all duration-700 ease-out' src={active.back} alt="" />
+                        <img className='w-full h-full object-cover opacity-100 group-hover/img:opacity-0 transition-opacity duration-700 ease-in-out' src={active.images[0]} alt="" />
+                        <img className='w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all duration-700 ease-out' src={active.images[1]} alt="" />
                         <div className='absolute flex flex-col items-end gap-1 right-0 top-0'>
                             <p className='bg-emerald-400 text-white rounded text-center xl:text-[13px] lg:text-[13px] text-[10px] xl:py-[1px] lg:py-[1px] py-0 xl:w-[42px] lg:w-[42px] w-[34px]'>New</p>
                             <p className='bg-red-600 text-white rounded text-center xl:text-[13px] lg:text-[13px] text-[11px] py-[1px] xl:w-[78px] lg:w-[78px] w-[62px]'>Sale 20%</p>
@@ -22,14 +24,19 @@ function ShirtItem({ shirt }) {
                         <div className='flex gap-1'>
                                 {shirt.variants.map((variant, index) => (
                                     <div key={index} className='w-[30px] mt-3 rounded-full cursor-pointer border-[1.4px] p-[2px] border-gray-300'
-                                    onClick={() => setActive(variant)}>
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        setActive(variant);
+                                        }}>
                                         <img className='rounded-full' title={variant.color} src={variant.icon} alt="dark-white" />
                                     </div>
                                 ))}
                         </div>
                     </div>
                 </div>
-        </div>
+            </div>
+        </Link>
   )
 }
 

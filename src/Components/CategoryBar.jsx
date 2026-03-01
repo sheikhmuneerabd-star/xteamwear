@@ -38,7 +38,7 @@ function CategoryBar() {
         useEffect(() => {
             const handleScroll = () => {
                 const currentScrollY = window.scrollY;
-                const hideBefore = 250;
+                const hideBefore = 650;
 
                 if (currentScrollY < hideBefore) {
                     setCateShow(false);
@@ -555,7 +555,7 @@ function CategoryBar() {
                 <div className="relative h-full flex items-center group cursor-pointer" onMouseEnter={(e) => {enter(e), setDropdownOpen(true)}} onMouseLeave={(e) => {leave(e), setDropdownOpen(false)}}>
                     <span>Soccer</span>
                     <span className="line absolute left-0 top-[23px] h-[2px] w-full"></span>
-                    <div className={`w-[260px] z-50 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[35px] px-5 py-2`}>
+                    <div className={`w-[260px] z-50 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[29px] px-5 py-2`}>
                         <div className="cursor-pointer mt-2 relative" onMouseEnter={(e) => enter(e)} onMouseLeave={(e) => leave(e)}>
                             <span className="text-sm">Sublimated Shirts</span>
                             <span className="line absolute left-0 top-[19px] h-[1.7px] w-[115px]"></span>
@@ -581,7 +581,7 @@ function CategoryBar() {
                 <div className="relative h-full flex items-center group cursor-pointer" onMouseEnter={(e) => {enter(e), setDropdownOpen(true)}} onMouseLeave={(e) => {leave(e), setDropdownOpen(false)}}>
                     <span>Basketball</span>
                     <span className="line absolute left-0 top-[23px] h-[2px] w-full"></span>
-                    <div className={`w-[260px] z-50 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[35px] px-5 py-2`}>
+                    <div className={`w-[260px] z-50 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[29px] px-5 py-2`}>
                         <div className="cursor-pointer mt-2 relative" onMouseEnter={(e) => enter(e)} onMouseLeave={(e) => leave(e)}>
                             <span className="text-sm">Sublimated Shirts</span>
                             <span className="line absolute left-0 top-[19px] h-[1.7px] w-[115px]"></span>
@@ -607,7 +607,7 @@ function CategoryBar() {
                 <div className="relative h-full flex items-center group cursor-pointer" onMouseEnter={(e) => {enter(e), setDropdownOpen(true)}} onMouseLeave={(e) => {leave(e), setDropdownOpen(false)}}>
                     <span>Winter Wear</span>
                     <span className="line absolute left-0 top-[23px] h-[2px] w-full"></span>
-                    <div className={`w-[260px] z-50 flex flex-col gap-3 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[35px] px-5 py-2`}>
+                    <div className={`w-[260px] z-50 flex flex-col gap-3 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[29px] px-5 py-2`}>
                         <div className="relative mt-1 group/item w-[235px]">
                             <div className="flex items-center justify-between group font-medium cursor-pointer">
                                 <span className="relative text-gray-700 group-hover:text-gray-950" onMouseEnter={(e) => enter(e)} onMouseLeave={(e) => leave(e)}>
@@ -678,7 +678,7 @@ function CategoryBar() {
                 <div className="relative h-full flex items-center group cursor-pointer" onMouseEnter={(e) => {enter(e), setDropdownOpen(true)}} onMouseLeave={(e) => {leave(e), setDropdownOpen(false)}}>
                     <span>More Teamwear</span>
                     <span className="line absolute left-0 top-[23px] h-[2px] w-full"></span>
-                    <div className={`w-[260px] z-50 flex flex-col gap-3 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[35px] px-5 py-2`}>
+                    <div className={`w-[260px] z-50 flex flex-col gap-3 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[29px] px-5 py-2`}>
                         <div className="relative mt-1 group/item w-[235px]">
                             <div className="flex items-center justify-between group font-medium cursor-pointer">
                                 <span className="relative text-gray-700 group-hover:text-gray-950" onMouseEnter={(e) => enter(e)} onMouseLeave={(e) => leave(e)}>
@@ -897,7 +897,7 @@ function CategoryBar() {
                 <div className="relative h-full flex items-center group cursor-pointer" onMouseEnter={(e) => {enter(e), setDropdownOpen(true)}} onMouseLeave={(e) => {leave(e), setDropdownOpen(false)}}>
                     <span>Sports Lab</span>
                     <span className="line absolute left-0 top-[23px] h-[2px] w-full"></span>
-                    <div className={`w-[260px] z-50 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[35px] px-5 py-2`}>
+                    <div className={`w-[260px] z-50 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[29px] px-5 py-2`}>
                         <div className="cursor-pointer mt-2 relative" onMouseEnter={(e) => enter(e)} onMouseLeave={(e) => leave(e)}>
                             <span className="text-sm">Sublimated Shirts</span>
                             <span className="line absolute left-0 top-[19px] h-[1.7px] w-[115px]"></span>
@@ -923,7 +923,7 @@ function CategoryBar() {
                 <div className="relative h-full flex items-center group cursor-pointer" onMouseEnter={(e) => {enter(e), setDropdownOpen(true)}} onMouseLeave={(e) => {leave(e), setDropdownOpen(false)}}>
                     <span>Blogs</span>
                     <span className="line absolute left-0 top-[23px] h-[2px] w-full"></span>
-                    <div className={`w-[260px] z-50 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[35px] px-5 py-2`}>
+                    <div className={`w-[260px] z-50 h-fit pointer-events-none opacity-0 ${dropdownOpen ? 'group-hover:opacity-100' : 'opacity-0'} -translate-y-3 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 bg-white border shadow-md absolute left-[-10px] top-[29px] px-5 py-2`}>
                         <div className="cursor-pointer mt-2 relative" onMouseEnter={(e) => enter(e)} onMouseLeave={(e) => leave(e)}>
                             <span className="text-sm">Sublimated Shirts</span>
                             <span className="line absolute left-0 top-[19px] h-[1.7px] w-[115px]"></span>
