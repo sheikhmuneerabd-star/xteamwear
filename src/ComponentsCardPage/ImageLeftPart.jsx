@@ -4,25 +4,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import { useParams } from "react-router-dom";
-import data from "../ShirtData";
 import { useState, useEffect } from "react";
 
-function ImageLeftPart() {
-
-  const { id, color } = useParams();
-
-  const shirt = data.find((item) => item.id === Number(id));
-
-  if (!shirt) {
-    return <div>Product Not Found</div>;
-  }
-
-  // Default variant (agar color na ho)
-  const defaultVariant = shirt.variants[0];
+function ImageLeftPart({ product, selectedColor }) {
 
   const selectedVariant =
-    shirt.variants.find((v) => v.color === color) || defaultVariant;
+    product.variants.find((v) => v.color === selectedColor) || product.variants[0];;
 
   const [activeImage, setActiveImage] = useState(
     selectedVariant.images[0]
@@ -34,7 +21,7 @@ function ImageLeftPart() {
   }, [selectedVariant]);
 
   return (
-    <div className="w-[55%]">
+    <div className="xl:w-[55%] md:w-[45%] w-[90%] md:mx-0 mx-auto sticky top-8">
 
       {/* Main Image */}
       <div className="relative">
@@ -43,7 +30,7 @@ function ImageLeftPart() {
       </div>
 
       {/* Slider */}
-      <div className="relative mt-10">
+      <div className="relative mt-10 md:block hidden">
 
         <Swiper
           modules={[Navigation]}

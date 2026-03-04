@@ -8,6 +8,7 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { IoIosArrowUp } from "react-icons/io";
 import { PiShoppingCartLight } from "react-icons/pi";
+import { Link } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -78,13 +79,15 @@ function CategoryBar() {
                         <div className="flex flex-col gap-4">
                             {category.map((item) => (
                                 <div key={item.id} className="relative group/item w-[225px]">
-                                    <div className="flex items-center justify-between group font-medium cursor-pointer">
-                                        <span className="relative text-gray-700 group-hover:text-gray-950" onMouseEnter={(e) => enter(e)} onMouseLeave={(e) => leave(e)}>
-                                            {item.name}
-                                            <span className="line absolute left-0 bottom-[1px] h-[1.6px] w-full"></span>
-                                        </span>
-                                        <RiArrowRightSLine className="absolute left-[201px] top-[5px] text-lg text-gray-500" />
-                                    </div>
+                                    <Link to="/categorySection">
+                                        <div className="flex items-center justify-between group font-medium cursor-pointer">
+                                            <span className="relative text-gray-700 group-hover:text-gray-950" onMouseEnter={(e) => enter(e)} onMouseLeave={(e) => leave(e)}>
+                                                {item.name}
+                                                <span className="line absolute left-0 bottom-[1px] h-[1.6px] w-full"></span>
+                                            </span>
+                                            <RiArrowRightSLine className="absolute left-[201px] top-[5px] text-lg text-gray-500" />
+                                        </div>
+                                    </Link>
                                     <div className="w-[260px] h-fit pointer-events-none opacity-0 group-hover/item:opacity-100 -translate-y-5 group-hover/item:translate-y-0 group-hover/item:pointer-events-auto transition-all duration-200 bg-white rounded-md border shadow-md absolute left-[225px] -top-[4px] px-5 py-2">
                                         {item.title.map((item, index) => (
                                             <div key={index} className="cursor-pointer mt-2">
@@ -526,13 +529,13 @@ function CategoryBar() {
                     <div className="flex flex-col gap-4">
                         {category.map((item) => (
                             <div key={item.id} className="relative group/item w-[225px]">
-                                <div className="flex items-center justify-between group font-medium cursor-pointer">
-                                    <span className="relative text-gray-700 group-hover:text-gray-950" onMouseEnter={(e) => enter(e)} onMouseLeave={(e) => leave(e)}>
-                                        {item.name}
-                                        <span className="line absolute left-0 bottom-[1px] h-[1.6px] w-full"></span>
-                                    </span>
-                                    <RiArrowRightSLine className="absolute left-[201px] top-[5px] text-lg text-gray-500" />
-                                </div>
+                                    <div className="flex items-center justify-between group font-medium cursor-pointer">
+                                        <span className="relative text-gray-700 group-hover:text-gray-950" onMouseEnter={(e) => enter(e)} onMouseLeave={(e) => leave(e)}>
+                                            {item.name}
+                                            <span className="line absolute left-0 bottom-[1px] h-[1.6px] w-full"></span>
+                                        </span>
+                                        <RiArrowRightSLine className="absolute left-[201px] top-[5px] text-lg text-gray-500" />
+                                    </div>
                                 <div className="w-[260px] h-fit pointer-events-none opacity-0 group-hover/item:opacity-100 -translate-y-5 group-hover/item:translate-y-0 group-hover/item:pointer-events-auto transition-all duration-200 bg-white rounded-md border shadow-md absolute left-[225px] -top-[4px] px-5 py-2">
                                     {item.title.map((item, index) => (
                                         <div key={index} className="cursor-pointer mt-2">

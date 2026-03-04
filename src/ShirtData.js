@@ -22,7 +22,9 @@ import BlueBackSim from '../src/assets/clickCardImgSld/blueBackSim.avif'
 const data = [
   {
     id: 1,
-    name: "Custom Soccer Jersey",
+    name: "Dark Clouds - Custom Soccer Jersey For Men Sublimation FT060109S",
+    oldPrice: 'Rs.10,068.79 PKR',
+    newPrice: 'Rs.8,054.48 PKR',
     variants: [
       {
         color: "GREEN & BLACK",
@@ -30,8 +32,8 @@ const data = [
         images: [
           imageFront,
           imageBack,
-          blueSimpleFront,
-          blueSimpleBack
+          whiteFrontSim,
+          whiteBackSim
         ]
       },
       {
@@ -40,16 +42,27 @@ const data = [
         images: [
           blueFront,
           blueBack,
-          BlueFrontSim,
-          BlueBackSim
+          blueSimpleFront,
+          blueSimpleBack
         ]
       },
+      {
+        color: "Red",
+        icon: redFront,
+        images: [
+          redFront,
+          redBack,
+          redFrontSim,
+          redBackSim]
+      }
     ]
   },
 
   {
     id: 2,
-    name: "Premium Sports Shirt",
+    name: "Premium Sports Shirt - Custom Soccer Jersey For Men Sublimation",
+    oldPrice: 'Rs.10,128.79 PKR',
+    newPrice: 'Rs.8,050.82 PKR',
     variants: [
       {
         color: "Red",
@@ -67,8 +80,8 @@ const data = [
         images: [
           blueFrontTo,
           blueBackTo,
-          blueSimpleFront,
-          blueSimpleBack
+          BlueFrontSim,
+          BlueBackSim
         ]
       }
     ]
@@ -76,7 +89,9 @@ const data = [
 
   {
     id: 3,
-    name: "Elite Performance Jersey",
+    name: "Elite Performance Jersey - Custom Soccer Jersey For Men Sublimation FT062033S",
+    oldPrice: 'Rs.9,048.21 PKR',
+    newPrice: 'Rs.7,044.38 PKR',
     variants: [
       {
         color: "Grey-Blue",
@@ -84,8 +99,8 @@ const data = [
         images: [
           blueFront,
           blueBack,
-          BlueFrontSim,
-          BlueBackSim
+          blueSimpleFront,
+          blueSimpleBack
         ]
       },
       {
@@ -97,13 +112,35 @@ const data = [
           redFrontSim,
           redBackSim
         ]
+      },
+      {
+        color: "GREEN & BLACK",
+        icon: imageFront,
+        images: [
+          imageFront,
+          imageBack,
+          whiteFrontSim,
+          whiteBackSim
+        ]
+      },
+      {
+        color: "Blue",
+        icon: blueFrontTo,
+        images: [
+          blueFrontTo,
+          blueBackTo,
+          BlueFrontSim,
+          BlueBackSim
+        ]
       }
     ]
   },
 
   {
     id: 4,
-    name: "Classic Sports Kit",
+    name: "Classic Sports Kit - Custom Soccer Jersey For Men Sublimation FT030402S",
+    oldPrice: 'Rs.13,198.48 PKR',
+    newPrice: 'Rs.11,054.28 PKR',
     variants: [
       {
         color: "Blue",
@@ -111,8 +148,8 @@ const data = [
         images: [
           blueFrontTo,
           blueBackTo,
-          blueSimpleFront,
-          blueSimpleBack
+          BlueFrontSim,
+          BlueBackSim
         ]
       },
       {

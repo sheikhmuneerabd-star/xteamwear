@@ -303,7 +303,7 @@ function Navbar() {
         </div>              
 
         {/* non full screen */}
-        <div className={`fixed top-0 left-0 right-0 z-50 shadow-sm shadow-gray-200 transition-all duration-200 w-full h-[54px] bg-white xl:hidden flex`}>
+        <div className={`fixed top-0 left-0 right-0 z-[999] shadow-sm shadow-gray-200 transition-all duration-200 w-full h-[54px] bg-white xl:hidden flex`}>
             {(openSearch || toggle) && (<div
                 className="fixed inset-0 bg-black/50 z-40"
                 onClick={() => {

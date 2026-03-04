@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 
-function ShirtItem({ shirt }) {
+function SizingPShirtItem({ shirt, handleClick }) {
     const [active, setActive] = useState(shirt.variants[0]);
 
   return (
-        <Link to={`/cardPage/${shirt.id}/${active.color}`}>
-            <div className='group rounded-md shadow-lg shadow-gray-300 p-4'>
+        <Link to={`/cardPage/${shirt.id}/${active.color}`} onClick={handleClick}>
+            <div className='group rounded-md shadow-lg shadow-gray-300 p-4 mb-8'>
                 <div>
                     <div className='cursor-pointer group/img group-hover:-translate-y-2 transition-all duration-300 relative rounded aspect-[4/5] overflow-hidden'>
                         <img className='w-full h-full object-cover opacity-100 group-hover/img:opacity-0 transition-opacity duration-700 ease-in-out' src={active.images[0]} alt="" />
@@ -40,4 +40,4 @@ function ShirtItem({ shirt }) {
   )
 }
 
-export default ShirtItem
+export default SizingPShirtItem
