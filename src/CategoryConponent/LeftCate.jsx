@@ -1,39 +1,89 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import leftCategoriesData from "./LeftCategoryData";
 function LeftCate() {
-    const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(null);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!containerRef.current?.contains(e.target)) {
+        setOpenIndex(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <div className="w-[19%]">
-        <div className="p-4">
-            <h2 className="font-medium border-b border-gray-900 pb-2">CATEGORIES</h2>
-            <div>
-                {
-                    leftCategoriesData.map((cate, index) => (
-                        <div key={cate.id}>
-                            <div className="flex justify-between items-center w-[95%] relative group cursor-pointer" onClick={() => setOpenIndex(openIndex === index ? null : index)}>
-                                <IoIosArrowForward className="text-gray-400 text-[13px] mt-1" />
-                                <p className="text-sm absolute top-0 left-0 bg-white group-hover:translate-x-4 transition-all duration-300">{cate.title}</p>
-                                <div className="relative mb-2">
-                                    <div className={`absolute transition-all duration-300 ${openIndex === index ? "rotate-90" : ""} top-0 left-1 w-[2px] h-[10px] bg-gray-800`}></div>
-                                    <div className={`absolute transition-all duration-300 ${openIndex === index ? "rotate-180" : ""} top-1 w-[10px] h-[2px] bg-gray-800`}></div>
-                                </div>
-                            </div>
-                            <div className={`overflow-hidden space-y-5 mt-3 mb-3 ${openIndex === index ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"} transition-all duration-700 ease-in-out`}>
-                                    {cate.items.map((item, i) => (
-                                        <div key={i} className="relative group flex items-center cursor-pointer">
-                                            <IoIosArrowForward className="text-gray-400 text-[13px] mt-1" />
-                                            <p className="text-sm absolute top-0 left-0 bg-white group-hover:translate-x-4 transition-all duration-300">{item}</p>
-                                        </div>
-                                    ))}
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
+    <div ref={containerRef}>
+      <div className="p-4">
+        <h2 className="font-medium border-b border-gray-900 pb-2">
+          CATEGORIES
+        </h2>
+
+        <div className="mt-3">
+          {leftCategoriesData.map((cate, index) => {
+            const isOpen = openIndex === index;
+            const contentRef = useRef(null);
+
+            return (
+              <div key={cate.id} className="mb-2">
+                {/* Header */}
+                <button
+                  onClick={() =>
+                    setOpenIndex(isOpen ? null : index)
+                  }
+                  aria-expanded={isOpen}
+                  aria-controls={`section-${index}`}
+                  className="w-full flex justify-between items-center pl-0 p-2 group"
+                >
+                  <div className="flex items-center relative">
+                    <IoIosArrowForward className="text-[15px] mt-[3.3px]" />
+                    <p className={`text-sm font-medium absolute top-0 left-1 bg-white group-hover:translate-x-3 transition-all duration-200 ${isOpen ? "translate-x-3" : ""}`}>
+                      {cate.title}
+                    </p>
+                  </div>
+
+                  <div className="relative mb-2">
+                    <div className={`absolute transition-all duration-500 ${openIndex === index ? "rotate-90" : ""} top-0 left-1 w-[2px] h-[10px] bg-gray-800`}></div>
+                    <div className={`absolute transition-all duration-500 ${openIndex === index ? "rotate-180" : ""} top-1 w-[10px] h-[2px] bg-gray-800`}></div>
+                </div>
+                </button>
+
+                {/* Content */}
+                <div
+                  id={`section-${index}`}
+                  role="region"
+                  ref={contentRef}
+                  style={{
+                    height: isOpen
+                      ? contentRef.current?.scrollHeight + "px"
+                      : "0px"
+                  }}
+                  className="overflow-hidden transition-all duration-500"
+                >
+                  <div className="pl-4 pb-2">
+                    {cate.items.map((item, i) => (
+                      <div key={i} className="relative h-[30px] flex items-center cursor-pointer group">
+                        <IoIosArrowForward className="text-sm text-gray-600" />
+                        <p
+                          className="absolute top-[3.3px] left-1 bg-white text-sm text-gray-600 group-hover:translate-x-3 transition-all duration-200"
+                        >
+                          {item}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default LeftCate
+export default LeftCate;
