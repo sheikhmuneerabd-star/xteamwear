@@ -10,13 +10,13 @@ function NavContact() {
   const boxRef = useRef(null);
 
   useGSAP(() => {
-      gsap.to("#countryBox", {
-        opacity:countryFlagShow ? 1 : 0,
-        y:countryFlagShow ? 0 : -10,
-        pointerEvents:countryFlagShow ? "auto" : "none",
-        duration:0.3,
-        ease:"power2.out"
-      })
+    gsap.to("#countryBox", {
+      opacity:countryFlagShow ? 1 : 0,
+      y:countryFlagShow ? 0 : -10,
+      pointerEvents:countryFlagShow ? "auto" : "none",
+      duration:0.3,
+      ease:"power2.out"
+    })
   }, [countryFlagShow]);
 
   useEffect(() => {

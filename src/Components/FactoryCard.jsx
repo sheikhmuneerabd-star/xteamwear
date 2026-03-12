@@ -9,6 +9,7 @@ import qsp from '../assets/factoryCardImage/quick-sample-production.webp';
 import osm from '../assets/factoryCardImage/one-set-minimum.webp';
 import wwd from '../assets/factoryCardImage/world-wide-delivery.webp';
 import ed from '../assets/factoryCardImage/expert-designers.webp';
+
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/all';
 import gsap from "gsap";
@@ -25,22 +26,18 @@ function FactoryCard() {
     ]
 
     useGSAP(() => {
-      let tl = gsap.timeline();
-      tl.from(".swiper-slide", {
-        y: 100,
-        duration:0.9,
-        opacity:0,
-        stagger:0.4,
-        delay:0.3,
-        scrollTrigger:{
-          trigger:".p-10",
-          scroll:"body",
-          scrub:2,
-          once: true,
-          start: "top 80%",
-          end:"top 30%"
+      ScrollTrigger.batch(".swiper-slide", {
+        start: "top 85%",
+        once: true,
+        onEnter: (elements) => {
+          gsap.from(elements, {
+              y: 80,
+              opacity: 0,
+              duration: 0.8,
+              stagger: 0.15,
+          });
         }
-      })
+      });
     }, []);
 
   return (

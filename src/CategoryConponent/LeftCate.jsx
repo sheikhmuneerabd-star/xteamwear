@@ -18,7 +18,7 @@ function LeftCate() {
 
   return (
     <div ref={containerRef}>
-      <div className="p-4">
+      <div className="p-4 pt-1">
         <h2 className="font-medium border-b border-gray-900 pb-2">
           CATEGORIES
         </h2>

@@ -8,6 +8,8 @@ import data from "../ShirtData";
 import Description from "../ComponentsCardPage/Description";
 import ProductSec from "../ComponentsCardPage/ProductSec";
 import sPShirtData from "../SizingPageShirt";
+import cateSlideData from "../FeaturedData";
+import categoryCardImg from "../CategoryCardImg";
 
 function CardPage() {
   
@@ -17,7 +19,7 @@ function CardPage() {
 
   const { id, color } = useParams();
 
-  const product = data.find((item) => item.id === Number(id)) || sPShirtData.find((item) => item.id === Number(id));
+  const product = data.find((item) => item.id === Number(id)) || sPShirtData.find((item) => item.id === Number(id)) || cateSlideData.find((item) => item.id === Number(id)) || categoryCardImg.find((item) => item.id === Number(id));
 
   if (!product) return <div>Product Not Found</div>;
 

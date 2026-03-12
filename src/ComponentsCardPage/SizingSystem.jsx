@@ -13,7 +13,7 @@ import { gsap } from "gsap";
 
 function SizingSystem({ product, selectedColor, setSelectedColor }) {
 
-    const selectedVariant = product.variants.find((v) => v.color === selectedColor) || product.variants[0];
+    const selectedVariant = product.variants.find((v) => v.color === selectedColor) || product.variants[0] ;
 
     const [activeImage, setActiveImage] = useState(selectedVariant.images[0]);
 
