@@ -1,84 +1,99 @@
 const leftCategoriesData = [
   {
     id: 1,
-    title: "FOOTBALL",
+    title: "Football",
     items: [
       "Sublimated Shirts",
-      "Match Kits",
-      "Training Wear",
-      "Goalkeeper Kits",
-      "Shorts"
+      "Fluorescent Jersey",
+      "Sleeveless Jersey",
+      "Long Sleeve Shirts",
+      "Women Jersey",
+      "Kids Jersey",
+      "Shorts & Paints",
+      "Goalkeeper",
+      "Socks & Accessories",
+      "Training",
+      "Uniform Packages",
+      "On Stock Shirts"
     ]
   },
   {
     id: 2,
-    title: "CRICKET",
+    title: "Basketball",
     items: [
-      "Cricket Shirts",
-      "Cricket Trousers",
-      "Caps",
-      "Whites",
-      "Practice Kits"
+      "Basketball Jersey",
+      "Reversiable Basketball Jersey",
+      "Basketball Sportswear",
+      "Kids Shirts",
+      "Base Layer",
+      "Shorts Pants",
+      "Basketball Sports Accessories",
+      "Hoodies & Jackets"
     ]
   },
   {
     id: 3,
-    title: "BASKETBALL",
+    title: "Baseball",
     items: [
-      "Jerseys",
-      "Shorts",
-      "Warmups",
-      "Compression Wear"
+      "Button Down Shirts",
+      "2-Button Shirts",
+      "Crewneck Shirts",
+      "Pants & Accessories"
     ]
   },
   {
     id: 4,
-    title: "BASEBALL",
+    title: "Winter Wear",
     items: [
-      "Baseball Jerseys",
-      "Baseball Pants",
-      "Batting Gloves",
-      "Team Caps"
+      "Adult Winter Wear",
+      "Kid Winter Wear"
     ]
   },
   {
     id: 5,
-    title: "TENNIS",
+    title: "Traning",
     items: [
-      "Tennis Shirts",
-      "Tennis Shorts",
-      "Skirts",
-      "Training Jackets"
+      "Bibs",
+      "1/4 Zip Jacket",
+      "Full-zip Jacket",
+      "Base Layer",
+      "Polos",
+      "Windbreaker",
+      "Shorts",
+      "Pants",
+      "Winter Jackets",
     ]
   },
   {
     id: 6,
-    title: "HOCKEY",
+    title: "Accessories",
     items: [
-      "Hockey Jerseys",
-      "Hockey Socks",
-      "Practice Jerseys",
-      "Team Hoodies"
+      "Bags",
+      "Socks",
+      "Protection",
+      "Slippers"
     ]
   },
   {
     id: 7,
-    title: "VOLLEYBALL",
+    title: "Kids",
     items: [
-      "Volleyball Jerseys",
-      "Volleyball Shorts",
-      "Arm Sleeves",
-      "Training Sets"
+      "Kids Football",
+      "Kids Basketball",
+      "Kids Traning",
+      "Kids Socks & Accessories",
+      "Down & Warm",
+      "More Kids Teamwear",
     ]
   },
   {
     id: 8,
-    title: "RUGBY",
+    title: "Xteamwear Basics",
     items: [
-      "Rugby Shirts",
-      "Rugby Shorts",
-      "Training Kits",
-      "Team Tracksuits"
+      "Polo",
+      "T-shirts",
+      "Shorts & Pants",
+      "Sweatshirts & Hoodies"
     ]
   }
 ];

@@ -23,12 +23,14 @@ function PriceCals() {
                 {children}
             </div>
             )}
-            renderThumb={({ props }) => (
-            <div
-                {...props}
-                className="h-5 w-5 bg-white border-2 border-black rounded-full"
-            />
-            )}
+            renderThumb={({ props }) => {
+                const { key, ...rest } = props;
+                <div
+                    key={key}
+                    {...rest}
+                    className="h-5 w-5 bg-white border-2 border-black rounded-full"
+                />
+            }}
         />
 
         <div className="flex items-center gap-4 mt-6">

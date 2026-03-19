@@ -26,9 +26,85 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
     const [logo, setLogo] = useState(false);
     const [sponsor, setSponsor] = useState(false);
 
+
+    const [preview, setPreview] = useState(null);
     const fileRef = useRef();
     const handleRef = () => {
         fileRef.current.click();
+    }
+
+    const [formData, setFormData] = useState({
+        teamName: "",
+        playerNumberOption: "",
+        logo: null,
+        sponsorOption: "",
+        sponsorLocation: "",
+        note: "",
+        players: []
+    });
+
+    const [players, setPlayers] = useState(0);
+
+    useEffect(() => {
+        setFormData(prev => ({
+            ...prev,
+            players: Array(players).fill({
+                size: "",
+                name: "",
+                number: ""
+            })
+        }))
+    }, [players])
+
+    const handlePlayerChange = (index, field, value) => {
+        const updatedPlayers = [...formData.players];
+        updatedPlayers[index][field] = value;
+
+        setFormData(prev => ({
+            ...prev,
+            players: updatedPlayers
+        }));
+    }
+
+    const handleSubmit = () => {
+        if (!formData.teamName) {
+            alert("Team Name required");
+            return;
+        }
+
+        // Player number option
+        if (!formData.playerNumberOption) {
+            alert("Select Player Number Option");
+            return;
+        }
+
+        // Players validation
+        for (let i = 0; i < formData.players.length; i++) {
+            const p = formData.players[i];
+
+            if (!p.size || !p.name || !p.number) {
+            alert(`Player ${i + 1} ka data complete karo`);
+            return;
+            }
+        }
+
+        console.log(formData);
+
+        setFormData({
+            teamName: "",
+            playerNumberOption: "",
+            logo: null,
+            sponsorOption: "",
+            sponsorLocation: "",
+            note: "",
+            players: Array(players).fill({
+            size: "",
+            name: "",
+            number: ""
+            })
+        });
+        setPreview(null);
+        setPlayers(0);
     }
 
   return (
@@ -70,7 +146,7 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
                 <p className='font-medium'>Step 2:Team Information</p>
                 <div className='flex flex-wrap gap-3 text-black mt-1'>
                     <label class="flex items-center gap-1 cursor-pointer" onChange={() => setTeamName(prev => !prev)}>
-                        <input className='w-5 h-5 border border-gray-300 accent-blue-500 rounded-md checked:bg-blue-600 checked:border-blue-600 text-white' type="checkbox" />
+                        <input className='w-5 h-5 border border-gray-300 accent-blue-500 rounded-md checked:bg-blue-600 checked:border-blue-600 text-white' type="checkbox"/>
                         <span className='font-semibold text-gray-800'>Team Name</span>
                     </label>
                     <label class="flex items-center gap-1 cursor-pointer" onChange={() => setPlayerNumber(prev => !prev)}>
@@ -88,11 +164,17 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
                 </div>
                 <div className={`mt-2 ${teamName ? "block" : "hidden"}`}>
                     <h2 className='font-medium'>Team Name</h2>
-                    <textarea className='w-full mt-1 h-[70px] border border-black rounded p-3 outline-none' id=""></textarea>
+                    <textarea className='w-full mt-1 h-[70px] border border-black rounded p-3 outline-none'
+                        onChange={(e) => setFormData(prev => ({...prev, teamName: e.target.value}))}
+                        value={formData.teamName}
+                    ></textarea>
                 </div>
                 <div className={`mt-2 ${playerNumber ? "block" : "hidden"}`}>
                     <h2 className='font-medium'>Player Number Option</h2>
-                    <select className='border mt-1 border-black w-full p-2 font-medium rounded cursor-pointer'>
+                    <select className='border mt-1 border-black w-full p-2 font-medium rounded cursor-pointer'
+                        onChange={(e) => setFormData(prev => ({...prev, playerNumberOption: e.target.value}))}
+                        value={formData.playerNumberOption}
+                    >
                         <option value="">Please choose</option>
                         <option value="Both Sides">Both Sides</option>
                         <option value="Only Back Number">Only Back Number</option>
@@ -103,14 +185,27 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
                     Logo <span className='text-[14px] text-red-600'>*</span>
                     <div className='w-[60px] mt-[7px] h-[60px] flex justify-center items-center border-[1.3px] border-dashed border-gray-800 rounded-md cursor-pointer'
                         onClick={handleRef}>
-                        <IoCloudUploadOutline className='text-2xl text-gray-800' />
-                        <input className='hidden' ref={fileRef} type="file" onChange={(e) => console.log(e.target.files[0])} />
+                            {
+                                preview ? (
+                                    <img src={preview} alt="preview" className='w-full h-full object-cover' />
+                                ) : (<IoCloudUploadOutline className='text-2xl text-gray-800' />)
+                            }
+                        <input className='hidden' ref={fileRef} type="file" onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file) {
+                                setPreview(URL.createObjectURL(file));
+                            }
+                            setFormData(prev => ({...prev, logo: e.target.files[0]}))
+                        }} />
                     </div>
                 </div>
                 <div className={`space-y-4 mt-3 ${sponsor ? "block" : "hidden"}`}>
                     <div>
                         <h2 className='font-medium'>Sponsor Option</h2>
-                        <select className='border mt-1 border-black w-full p-2 font-medium rounded cursor-pointer'>
+                        <select className='border mt-1 border-black w-full p-2 font-medium rounded cursor-pointer'
+                            onChange={(e) => setFormData(prev => ({...prev, sponsorOption: e.target.value}))}
+                            value={formData.sponsorOption}
+                        >
                             <option value="">Please choose</option>
                             <option value="Sponsor Text">Sponsor Text</option>
                             <option value="Sponsor Image">Sponsor Image</option>
@@ -118,7 +213,10 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
                     </div>
                     <div>
                         <h2 className='font-medium'>Sponsor Location</h2>
-                        <select className='border mt-1 border-black w-full p-2 font-medium rounded cursor-pointer'>
+                        <select className='border mt-1 border-black w-full p-2 font-medium rounded cursor-pointer'
+                            onChange={(e) => setFormData(prev => ({...prev, sponsorLocation: e.target.value}))}
+                            value={formData.sponsorLocation}
+                        >
                             <option value="">Please choose</option>
                             <option value="Sponsor Text">1.Front Chest(Replacing TeamName)</option>
                             <option value="Sponsor Image">2.Front Belly (Low Position)</option>
@@ -130,20 +228,69 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
             </div>
             <div>
                 <p className='font-medium'>Step 3:Special requirements and additional notes</p>
-                <textarea className='w-full mt-1 h-[70px] border border-black rounded p-3 outline-none' id=""></textarea>
+                <textarea className='w-full mt-1 h-[70px] border border-black rounded p-3 outline-none'
+                    onChange={(e) => setFormData(prev => ({...prev, note: e.target.value}))}
+                    value={formData.note}
+                ></textarea>
             </div>
             <div>
                 <p className='font-medium'>Step 4: Player Information</p>
                 <p className='font-medium mt-1'>Number of Players</p>
-                <select className='border mt-1 border-black w-full p-2 font-medium rounded cursor-pointer'>
+                <select className='border mt-1 border-black w-full p-2 outline-none font-medium rounded cursor-pointer'
+                    onChange={(e) => setPlayers(Number(e.target.value))}
+                >
                     <option value="">Please choose</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
                 </select>
             </div>
-            <button className='w-full h-[50px] border rounded-md font-semibold text-sm border-yellow-400 hover:bg-yellow-400 transition-all duration-100'>ADD TO CART</button>
+            <div className='space-y-2'>
+                {[...Array(players)].map((_, index) => (
+                    <div key={index} className='flex items-center gap-3'>
+                        <div>
+                            <p className='font-medium'>Size{index + 1}</p>
+                            <select className='border mt-1 border-black p-2 h-[40px] font-medium rounded cursor-pointer'
+                                value={formData.players[index]?.size || ""}
+                                onChange={(e) => handlePlayerChange(index, "size", e.target.value)}
+                            >
+                                <option value="">Please choose</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                                <option value="3XL">3XL</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p className='font-medium'>Player {index + 1} Name</p>
+                            <input className='border mt-1 border-black h-[40px] rounded-md w-[99%] outline-none pl-3' type="text"
+                                value={formData.players[index]?.name || ""}
+                                onChange={(e) => handlePlayerChange(index, "name", e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <p className='font-medium'>Number{index + 1}</p>
+                            <input className='border mt-1 border-black h-[40px] rounded-md w-[99%] outline-none pl-3' type="text"
+                                value={formData.players[index]?.number || ""}
+                                onChange={(e) => handlePlayerChange(index, "number", e.target.value)}
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <button className='w-full h-[50px] border rounded-md font-semibold text-sm border-yellow-400 hover:bg-yellow-400 transition-all duration-100'
+                onClick={handleSubmit}
+            >ADD TO CART</button>
             <div>
                 <div className='flex flex-wrap items-center text-[13px]'>
                     <span>Contact us on</span>
