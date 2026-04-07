@@ -29,17 +29,10 @@ function ProgressBar() {
       </div>
 
       {/* Text */}
-      <p className="text-sm mt-2 text-gray-700">
+      <p className="lg:text-sm text-[13px] mt-2 text-gray-700">
         Only <span className="font-semibold">${remaining} USD</span> away from Free Shipping
       </p>
-
-      {/* Demo Button */}
-      <button
-        onClick={() => setCartTotal(cartTotal + 20)}
-        className="mt-3 px-4 py-1 bg-black text-white rounded"
-      >
-        Add $20
-      </button>
+      
     </div>
   );
 }

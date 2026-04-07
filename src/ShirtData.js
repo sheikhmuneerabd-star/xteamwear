@@ -23,8 +23,8 @@ const data = [
   {
     id: 1,
     name: "Dark Clouds - Custom Soccer Jersey For Men Sublimation FT060109S",
-    oldPrice: 'Rs.10,068.79 PKR',
-    newPrice: 'Rs.8,054.48 PKR',
+    oldPrice: 10068.79,
+    newPrice: 8054.48,
     variants: [
       {
         color: "GREEN & BLACK",
@@ -61,8 +61,8 @@ const data = [
   {
     id: 2,
     name: "Premium Sports Shirt - Custom Soccer Jersey For Men Sublimation",
-    oldPrice: 'Rs.10,128.79 PKR',
-    newPrice: 'Rs.8,050.82 PKR',
+    oldPrice: 10128.79,
+    newPrice: 8050.82,
     variants: [
       {
         color: "Red",
@@ -90,8 +90,8 @@ const data = [
   {
     id: 3,
     name: "Elite Performance Jersey - Custom Soccer Jersey For Men Sublimation FT062033S",
-    oldPrice: 'Rs.9,048.21 PKR',
-    newPrice: 'Rs.7,044.38 PKR',
+    oldPrice: 9048.21,
+    newPrice: 7044.38,
     variants: [
       {
         color: "Grey-Blue",
@@ -139,8 +139,8 @@ const data = [
   {
     id: 4,
     name: "Classic Sports Kit - Custom Soccer Jersey For Men Sublimation FT030402S",
-    oldPrice: 'Rs.13,198.48 PKR',
-    newPrice: 'Rs.11,054.28 PKR',
+    oldPrice: 13198.48,
+    newPrice: 11054.28,
     variants: [
       {
         color: "Blue",

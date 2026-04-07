@@ -20,8 +20,8 @@ function ShirtItem({ shirt }) {
 
                     <div className='md:pt-4 md:pl-4 md:pr-4 pt-3 pl-2 pb-0'>
                         <p className='text-sm md:text-base lg:text-lg line-clamp-2 text-gray-700 hover:text-blue-600 cursor-pointer transition-all duration-300'>{shirt.name}</p>
-                        <p className='text-gray-600 text-sm md:text-base lg:text-lg mt-2 line-through cursor-pointer'>{shirt.oldPrice}</p>
-                        <div className='text-red-600 flex items-center gap-2 cursor-pointer text-sm md:text-base lg:text-lg font-medium'>{shirt.newPrice} <p className='bg-red-600 text-white xl:px-3 lg:px-3 px-2 xl:text-[15px] lg:text-[15px] text-[10px] xl:pt-1 lg:pt-1 pt-[2px] xl:pb-[5px] lg:pb-[5px] pb-[2px] rounded cursor-text hidden md:flex'>(-20%)</p></div>
+                        <p className='text-gray-600 text-sm md:text-base lg:text-lg mt-2 line-through cursor-pointer'>Rs.{shirt.oldPrice.toLocaleString("en-PK")} PKR</p>
+                        <div className='text-red-600 flex items-center gap-2 cursor-pointer text-sm md:text-base lg:text-lg font-medium'>Rs.{shirt.newPrice.toLocaleString("en-PK")} PKR <p className='bg-red-600 text-white xl:px-3 lg:px-3 px-2 xl:text-[15px] lg:text-[15px] text-[10px] xl:pt-1 lg:pt-1 pt-[2px] xl:pb-[5px] lg:pb-[5px] pb-[2px] rounded cursor-text hidden md:flex'>(-20%)</p></div>
                         <div className='flex gap-1'>
                             {shirt.variants.map((variant, index) => (
                                 <div key={index} className='w-[30px] mt-3 rounded-full cursor-pointer border-[1.4px] p-[2px] border-gray-300'

@@ -7,7 +7,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { HiMiniBars3 } from "react-icons/hi2";
 import { IoIosSearch } from "react-icons/io";
 import { CgShoppingBag } from "react-icons/cg";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import greenShirt from '../assets/greenShirt.jpg'
 import orangeShirt from '../assets/orangeShirt.jpg'
@@ -22,6 +22,7 @@ import { useRef, useEffect } from 'react';
 import { HiOutlineUserCircle } from "react-icons/hi2";
 import { RiUserAddLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import { dataContext } from '../UseContext/UseContext';
 
 
 function Navbar() {
@@ -144,6 +145,7 @@ function Navbar() {
         document.body.style.overflow = toggle ? "hidden" : "";
     }, [toggle])
 
+    const { cart } = useContext(dataContext); 
   return (
     <div>
         {/* full screen */}
@@ -280,7 +282,7 @@ function Navbar() {
                         <Link to="/cart" className='flex items-center gap-2 group cursor-pointer'>
                             <PiShoppingCartLight className='text-[32px] group-hover:scale-110 transition-all duration-200' />
                             <div className='flex flex-col justify-center text-[13px]'>
-                                <span className='flex items-center justify-center bg-yellow-400 rounded-full font-semibold text-white w-[30px] h-[17.5px]'>0</span>
+                                <span className='flex items-center justify-center bg-yellow-400 rounded-full font-semibold text-white w-[30px] h-[17.5px]'>{cart.length}</span>
                                 <span>Cart</span>
                             </div>
                         </Link>

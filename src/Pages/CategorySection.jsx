@@ -47,14 +47,14 @@ function CategorySection() {
     <div>
         <CateLinkBar cateName={cateName} />
         <div className="flex">
-          <div className="w-[19%]">
+          <div className="w-[19%] xl:block hidden">
             <LeftCate setActiveCategory={setActiveCategory} activeCategory={activeCategory} />
             <ClearStockBox />
             <Available />
             <PriceCals />
             <FeaturedProducts />
           </div>
-          <div className="w-[78.7%] ml-4">
+          <div className="xl:w-[78.7%] w-[98%] mx-auto xl:ml-4">
             <div className="h-[1px] w-[98%] bg-gray-300 mt-3"></div>
             <RightViewPage grid={grid} selectHandle={setGrid} options={options} itemPerPageCard={itemPerPageCard} setItemPerPageCard={setItemPerPageCard} />
             <CardCateSec grid={grid} itemPerPageCard={itemPerPageCard} activeCategory={activeCategory} />

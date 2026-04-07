@@ -17,8 +17,8 @@ function FeaturedProductSlide({ item }) {
 
                 <div className='md:pt-3 pt-3 pl-2 pb-0'>
                     <p className='text-sm md:text-base lg:text-md line-clamp-2 text-gray-700 hover:text-blue-600 cursor-pointer transition-all duration-300'>{item.name}</p>
-                    <p className='text-gray-600 text-sm md:text-base lg:text-[14px] mt-2 line-through cursor-pointer'>{item.oldPrice}</p>
-                    <div className='text-red-600 flex items-center cursor-pointer text-sm md:text-base lg:text-[14px] font-medium gap-1'>{item.newPrice} <p className='bg-red-600 text-white xl:px-2 lg:px-3 px-2 xl:text-[13px] lg:text-[15px] text-[10px] py-[2px] rounded cursor-text hidden md:flex'>(-20%)</p></div>
+                    <p className='text-gray-600 text-sm md:text-base lg:text-[14px] mt-2 line-through cursor-pointer'>Rs.{item.oldPrice.toLocaleString("en-PK")} PKR</p>
+                    <div className='text-red-600 flex items-center cursor-pointer text-sm md:text-base lg:text-[14px] font-medium gap-1'>Rs.{item.newPrice.toLocaleString("en-PK")} PKR <p className='bg-red-600 text-white xl:px-2 lg:px-3 px-2 xl:text-[13px] lg:text-[15px] text-[10px] py-[2px] rounded cursor-text hidden md:flex'>(-20%)</p></div>
                     <div className='flex gap-1'>
                         {item.variants.map((variant, index) => (
                             <div key={index} className='w-[30px] mt-3 rounded-full cursor-pointer border-[1.4px] p-[2px] border-gray-300'

@@ -21,8 +21,8 @@ const cateSlideData = [
     {
         id: 13,
         name: "Boot Bag",
-        oldPrice: 'Rs.3,068.79 PKR',
-        newPrice: 'Rs.2,054.48 PKR',
+        oldPrice: 3068.79,
+        newPrice: 2054.48,
         variants: [
             {
             color: "Black1",
@@ -39,8 +39,8 @@ const cateSlideData = [
     {
         id: 14,
         name: "Recluse Drawstring Backpack",
-        oldPrice: 'Rs.4,068.79 PKR',
-        newPrice: 'Rs.3,054.48 PKR',
+        oldPrice: 4068.79,
+        newPrice: 3054.48,
         variants: [
             {
             color: "BLACK2",
@@ -67,8 +67,8 @@ const cateSlideData = [
     {
         id: 15,
         name: "Falcon - Adult Backpack",
-        oldPrice: 'Rs.17,068.79 PKR',
-        newPrice: 'Rs.13,054.48 PKR',
+        oldPrice: 17068.79,
+        newPrice: 13054.48,
         variants: [
             {
             color: "Black3",

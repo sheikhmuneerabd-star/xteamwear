@@ -5,13 +5,14 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { BsQuestionCircleFill } from "react-icons/bs";
 import { IoShirt } from "react-icons/io5";
 import { TbShirtFilled } from "react-icons/tb";
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 import { IoCloudUploadOutline } from "react-icons/io5";
 
-import { gsap } from "gsap";
+import { dataContext } from '../UseContext/UseContext';
 
 function SizingSystem({ product, selectedColor, setSelectedColor }) {
+    const { addToCart, setSizingDetailData } = useContext(dataContext);
 
     const selectedVariant = product.variants.find((v) => v.color === selectedColor) || product.variants[0] ;
 
@@ -87,9 +88,11 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
             return;
             }
         }
-
+        
         console.log(formData);
-
+        setSizingDetailData(formData);
+        addToCart(product);
+        
         setFormData({
             teamName: "",
             playerNumberOption: "",
@@ -113,8 +116,8 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
             <h2 className='text-2xl font-semibold mt-1'>{product.name}</h2>
             <p className='text-gray-600 text-[15px] font-medium line-clamp-2'>Feature CONVEX-FIT fabric Made from 100% polyester wicking knit with 92% polyester / 8% spandex wicking pinhole mesh High-tech</p>
             <div className='flex flex-wrap gap-2 text-2xl '>
-                <p className='line-through'>{product.oldPrice}</p>
-                <span className='text-red-500 font-semibold'>{product.newPrice}</span>
+                <p className='line-through'>Rs.{product.oldPrice.toLocaleString("en-PK")} PKR</p>
+                <span className='text-red-500 font-semibold'>Rs.{product.newPrice.toLocaleString("en-PK")} PKR</span>
             </div>
             <p className='underline hover:text-gray-600 w-fit cursor-pointer text-sm'>Size Chart</p>
             <div className='flex items-center'>

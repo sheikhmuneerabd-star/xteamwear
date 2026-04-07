@@ -31,10 +31,25 @@ function RightViewPage({ grid, selectHandle, options, itemPerPageCard, setItemPe
       }
     }, []);
 
+    useEffect(() => {
+      const handleResize = () => {
+        if(window.innerWidth <= 1024){
+          selectHandle(2);
+        }else{
+          selectHandle(3);
+        }
+      };
+
+      handleResize();
+      window.addEventListener("resize", handleResize);
+
+      return () => window.removeEventListener("resize", handleResize);
+    }, [selectHandle]);
+
   return (
     <div className="w-[99.5%] mt-10">
         <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+            <div className="flex md:flex-row flex-col justify-center items-center gap-4">
               <h2 className="font-medium text-[15px]">VIEW AS</h2>
               <div className="flex gap-[5px]">
                   <div className="border border-black p-[3.5px] w-fit space-y-1 cursor-pointer" onClick={() => selectHandle(1)}>
@@ -46,7 +61,7 @@ function RightViewPage({ grid, selectHandle, options, itemPerPageCard, setItemPe
                     <div className={`w-[4px] h-[21px] ${grid === 2 ? "bg-gray-900" : "bg-gray-500"}`}></div>
                     <div className={`w-[4px] h-[21px] ${grid === 2 ? "bg-gray-900" : "bg-gray-500"}`}></div>
                   </div>
-                  <div className="border border-black p-[3.5px] w-fit flex gap-1 cursor-pointer" onClick={() => selectHandle(3)}>
+                  <div className="border border-black p-[3.5px] w-fit xl:flex gap-1 cursor-pointer hidden" onClick={() => selectHandle(3)}>
                     <div className={`w-[4px] h-[21px] ${grid === 3 ? "bg-gray-900" : "bg-gray-500"}`}></div>
                     <div className={`w-[4px] h-[21px] ${grid === 3 ? "bg-gray-900" : "bg-gray-500"}`}></div>
                     <div className={`w-[4px] h-[21px] ${grid === 3 ? "bg-gray-900" : "bg-gray-500"}`}></div>
@@ -54,7 +69,7 @@ function RightViewPage({ grid, selectHandle, options, itemPerPageCard, setItemPe
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex md:flex-row flex-col items-center gap-4">
               <h2 className="font-medium text-[15px]">ITEMS PER PAGE</h2>
               <div className="relative" ref={itemPerBoxRef}>
                 <div className="flex cursor-pointer justify-between items-center px-3 border border-gray-300 w-[90px] h-[45px]" onClick={() => setItemPerPage(!itemPerPage)}>

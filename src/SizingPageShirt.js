@@ -30,8 +30,8 @@ const sPShirtData = [
   {
     id: 5,
     name: "Flame - Custom Soccer Jersey For Men Sublimation FT060109S",
-    oldPrice: 'Rs.12,068.79 PKR',
-    newPrice: 'Rs.8,054.48 PKR',
+    oldPrice: 12068.79,
+    newPrice: 8054.48,
     variants: [
       {
         color: "Red",
@@ -49,8 +49,8 @@ const sPShirtData = [
   {
     id: 6,
     name: "Map - Custom Soccer Jersey For Men Sublimation FT060110S",
-    oldPrice: 'Rs.10,128.79 PKR',
-    newPrice: 'Rs.8,050.82 PKR',
+    oldPrice: 10128.79,
+    newPrice: 8050.82,
     variants: [
       {
         color: "Deeppink",
@@ -68,8 +68,8 @@ const sPShirtData = [
   {
     id: 7,
     name: "Fashion Performance Jersey - Custom Soccer Jersey For Men Sublimation FT062033S",
-    oldPrice: 'Rs.12,048.21 PKR',
-    newPrice: 'Rs.8,044.38 PKR',
+    oldPrice: 12048.21,
+    newPrice: 8044.38,
     variants: [
       {
         color: "Black",
@@ -87,8 +87,8 @@ const sPShirtData = [
   {
     id: 8,
     name: "Aura - Custom Soccer Jersey For Men Sublimation FT030402S",
-    oldPrice: 'Rs.13,198.48 PKR',
-    newPrice: 'Rs.11,054.28 PKR',
+    oldPrice: 13198.48,
+    newPrice: 11054.28,
     variants: [
       {
         color: "Black",
@@ -117,8 +117,8 @@ const sPShirtData = [
   {
     id: 9,
     name: "Flame - Custom Soccer Jersey For Men Sublimation FT060109S",
-    oldPrice: 'Rs.12,068.79 PKR',
-    newPrice: 'Rs.8,054.48 PKR',
+    oldPrice: 12068.79,
+    newPrice: 8054.48,
     variants: [
       {
         color: "Red",
@@ -136,8 +136,8 @@ const sPShirtData = [
   {
     id: 10,
     name: "Map - Custom Soccer Jersey For Men Sublimation FT060110S",
-    oldPrice: 'Rs.10,128.79 PKR',
-    newPrice: 'Rs.8,050.82 PKR',
+    oldPrice: 10128.79,
+    newPrice: 8050.82,
     variants: [
       {
         color: "Deeppink",
@@ -155,8 +155,8 @@ const sPShirtData = [
   {
     id: 11,
     name: "Fashion Performance Jersey - Custom Soccer Jersey For Men Sublimation FT062033S",
-    oldPrice: 'Rs.12,048.21 PKR',
-    newPrice: 'Rs.8,044.38 PKR',
+    oldPrice: 12048.21,
+    newPrice: 8044.38,
     variants: [
       {
         color: "Black",
@@ -174,8 +174,8 @@ const sPShirtData = [
   {
     id: 12,
     name: "Aura - Custom Soccer Jersey For Men Sublimation FT030402S",
-    oldPrice: 'Rs.13,198.48 PKR',
-    newPrice: 'Rs.11,054.28 PKR',
+    oldPrice: 13198.48,
+    newPrice: 11054.28,
     variants: [
       {
         color: "Black",

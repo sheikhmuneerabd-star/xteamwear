@@ -17,8 +17,8 @@ const lastCateCard = [
     {
         id: 31,
         name: "Dark Clouds - Custom Soccer Jersey For Men Sublimation FT060109S",
-        oldPrice: 'Rs.3,068.79 PKR',
-        newPrice: 'Rs.2,054.48 PKR',
+        oldPrice: 3068.79,
+        newPrice: 2054.48,
         category: "Baseball",
         variants: [
             {
@@ -36,8 +36,8 @@ const lastCateCard = [
     {
         id: 32,
         name: "Premium Sports Shirt - Custom Soccer Jersey For Men Sublimation",
-        oldPrice: 'Rs.4,068.79 PKR',
-        newPrice: 'Rs.3,054.48 PKR',
+        oldPrice: 4068.79,
+        newPrice: 3054.48,
         category: "Baseball",
         variants: [
             {
@@ -55,8 +55,8 @@ const lastCateCard = [
     {
         id: 33,
         name: "Elite Performance Jersey - Custom Soccer Jersey For Men Sublimation FT062033S",
-        oldPrice: 'Rs.17,068.79 PKR',
-        newPrice: 'Rs.13,054.48 PKR',
+        oldPrice: 17068.79,
+        newPrice: 13054.48,
         category: "Baseball",
         variants: [
             {

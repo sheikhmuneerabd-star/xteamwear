@@ -3,24 +3,30 @@ import LinkBar from "../ComponentsCardPage/LinkBar"
 import SizingSystem from "../ComponentsCardPage/SizingSystem"
 
 import { useParams } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import data from "../ShirtData";
 import Description from "../ComponentsCardPage/Description";
 import ProductSec from "../ComponentsCardPage/ProductSec";
 import sPShirtData from "../SizingPageShirt";
 import cateSlideData from "../FeaturedData";
 import categoryCardImg from "../CategoryCardImg";
+import CartsProduct from "../CartsProduct";
+import { dataContext } from "../UseContext/UseContext";
 
 function CardPage() {
-  
+  const { setProduct } = useContext(dataContext);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const { id, color } = useParams();
 
-  const product = data.find((item) => item.id === Number(id)) || sPShirtData.find((item) => item.id === Number(id)) || cateSlideData.find((item) => item.id === Number(id)) || categoryCardImg.find((item) => item.id === Number(id));
-
+  const product = data.find((item) => item.id === Number(id)) || sPShirtData.find((item) => item.id === Number(id)) || cateSlideData.find((item) => item.id === Number(id)) || categoryCardImg.find((item) => item.id === Number(id)) || CartsProduct.find((item) => item.id === Number(id));
+  if(product){
+    setProduct(product);
+  } else {
+    setProduct();
+  }
   if (!product) return <div>Product Not Found</div>;
 
   const defaultVariant = product.variants[0];
