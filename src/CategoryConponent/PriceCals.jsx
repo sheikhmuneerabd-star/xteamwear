@@ -25,11 +25,13 @@ function PriceCals() {
             )}
             renderThumb={({ props }) => {
                 const { key, ...rest } = props;
-                <div
-                    key={key}
-                    {...rest}
-                    className="h-5 w-5 bg-white border-2 border-black rounded-full"
-                />
+                return (
+                    <div
+                        key={key}
+                        {...rest}
+                        className="h-5 w-5 bg-white border-2 border-black rounded-full"
+                    />
+                );
             }}
         />
 
@@ -42,13 +44,13 @@ function PriceCals() {
                 className="border p-2 text-end w-20 h-[50px] rounded-md border-gray-600 outline-none"
                 onChange={(e) => {
                         let val = Number(e.target.value);
-                        if(val > 180){
+                        if(val >= 180){
                             val = 180
                         }
                         if(val < 0){
                             val = 0
                         }
-                        if(val < values[1]){
+                        if(val <= values[1]){
                             setValues([val, values[1]])
                         }
                     }}
@@ -63,18 +65,19 @@ function PriceCals() {
                     className="border text-end p-2 w-20 h-[50px] rounded-md border-gray-600 outline-none flex justify-between"
                     onChange={(e) => {
                         let val = e.target.value;
-                        if(val === "" || Number(val) === 0){
+
+                        if (val === "") {
                             setValues([values[0], 180]);
                             return;
                         }
 
                         val = Number(val);
 
-                        if(val > 180){
-                            val = 180
-                        }
-                        if(val > values[0]){
-                            setValues([values[0], val])
+                        if (val > 180) val = 180;
+                        if (val < 0) val = 0;
+
+                        if (val >= values[0]) {
+                            setValues([values[0], val]);
                         }
                     }}
                 />

@@ -26,7 +26,7 @@ function ProductDetails() {
             </div>
             {cart.length === 0 ? <div className='text-center text-2xl font-medium'>Not Cart</div> : 
             cart.map((item) => (
-                <ProductsDetailsDemo key={item.id} sizingDetailData={sizingDetailData} id={item.id} name={item.name} oldPrice={item.oldPrice} newPrice={item.newPrice} image={item.variants[0].images[0]} color={item.variants[0].color} increase={increase} decrease={decrease} total={total} qty={item.qty} />
+                <ProductsDetailsDemo key={item.id} cart={cart} sizingDetailData={sizingDetailData} id={item.id} name={item.name} oldPrice={item.oldPrice} newPrice={item.newPrice} image={item.variants[0].images[0]} color={item.variants[0].color} increase={increase} decrease={decrease} total={total} qty={item.qty} />
             ))}
             {/* Additional Comments */}
             <div className="mt-5">

@@ -22,7 +22,7 @@ function OrderSummary() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
     let item = cart;
-    let total = item.reduce((total, item) => total + Number(item.qty), 0) * Number(product?.newPrice);
+    let total = item.reduce((total, item) => total.toLocaleString("en-PK") + Number(item.qty), 0) * Number(product?.newPrice);
   return (
     <div ref={containerRef} className='xl:mt-0 mt-10'>
         <div className='flex xl:flex-col md:flex-row flex-col justify-between'>
@@ -32,7 +32,7 @@ function OrderSummary() {
                 </div>
                 <div className='flex justify-between border-b border-gray-400 pb-3'>
                     <p className='text-[14px]'>Subtotal</p>
-                    <p className='font-semibold'>{total || 0}</p>
+                    <p className='font-semibold'>Rs.{(total || 0).toLocaleString("en-PK")} PKR</p>
                 </div>
                 <div>
                     <div>
@@ -74,7 +74,7 @@ function OrderSummary() {
                 </div>
                 <div className='md:flex justify-between border-b border-gray-400 pb-5 hidden'>
                     <p className='text-sm font-medium'>TOTAL:</p>
-                    <p className='font-semibold'>{total || 0}</p>
+                    <p className='font-semibold'>Rs.{(total || 0).toLocaleString("en-PK")} PKR</p>
                 </div>
                 <p className='text-[14px] text-gray-500'>Tax included and shipping calculated at checkout</p>
             </div>

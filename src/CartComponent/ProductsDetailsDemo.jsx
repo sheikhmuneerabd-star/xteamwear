@@ -2,7 +2,7 @@ import blueFront from '../assets/shirtsImages/blueFront.webp';
 import { FiEdit } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 
-function ProductsDetailsDemo({ sizingDetailData, id, name, oldPrice, newPrice, image, color, increase, decrease, total, qty }) {
+function ProductsDetailsDemo({ cart, sizingDetailData, id, name, oldPrice, newPrice, image, color, increase, decrease, total, qty }) {
     
   return (
     <div>
@@ -32,7 +32,6 @@ function ProductsDetailsDemo({ sizingDetailData, id, name, oldPrice, newPrice, i
                 <p>decoration option: Standard</p>
                 <p>Team Name: {sizingDetailData.teamName}</p>
                 <p>Player Number Option: {sizingDetailData.playerNumberOption}</p>
-                <p>Logo: 73244238938943</p>
                 <p>Sponsor Option: {sizingDetailData.sponsorOption}</p>
                 <p>Sponsor Location: {sizingDetailData.sponsorLocation}</p>
                 <p>requierments: {sizingDetailData.note}</p>
@@ -44,7 +43,7 @@ function ProductsDetailsDemo({ sizingDetailData, id, name, oldPrice, newPrice, i
                         <p>Number1: {player.number}</p>
                     </div>
                 ))}
-                <p>Logo: {URL.createObjectURL(sizingDetailData.logo)}</p>
+                <p>Logo: {sizingDetailData.logo ? URL.createObjectURL(sizingDetailData.logo) : ""}</p>
             </div>
             </div>
 
@@ -54,9 +53,9 @@ function ProductsDetailsDemo({ sizingDetailData, id, name, oldPrice, newPrice, i
             {/* Price */}
             <div className="text-[14px]">
                 <p className="line-through text-gray-500">
-                {oldPrice}
+                Rs.{oldPrice.toLocaleString("en-PK")} PKR
                 </p>
-                <p>{newPrice}</p>
+                <p>Rs.{newPrice.toLocaleString("en-PK")} PKR</p>
             </div>
 
             {/* Quantity */}
@@ -64,6 +63,7 @@ function ProductsDetailsDemo({ sizingDetailData, id, name, oldPrice, newPrice, i
                 <div className="w-full h-full flex items-center justify-center text-2xl hover:bg-gray-300 cursor-pointer"
                 onClick={() => {
                     const item = cart.find(i => i.id === id);
+                    console.log(item);
                     if(item?.qty > 1){
                         decrease(id);
                     }
@@ -81,7 +81,7 @@ function ProductsDetailsDemo({ sizingDetailData, id, name, oldPrice, newPrice, i
 
             {/* Total + Remove */}
             <div className="flex justify-between items-center w-full sm:w-auto gap-3">
-                <p>{total}</p>
+                <p>Rs.{total.toLocaleString("en-PK")} PKR</p>
                 <IoMdClose className="text-xl cursor-pointer" />
             </div>
 

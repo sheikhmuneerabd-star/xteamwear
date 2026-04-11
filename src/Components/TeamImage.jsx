@@ -1,4 +1,4 @@
-import TeamBackgroundImage from '../assets/3manTeam.jpg';
+import TeamBackgroundImage from '../assets/backgroundFront/teamMan.webp';
 import TeamImageScr from '../assets/teamImageScr.webp';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
@@ -26,7 +26,7 @@ function TeamImage() {
     <div>
       <div className='h-[95vh] relative overflow-hidden hidden xl:flex'>
         <div className='absolute top-[0px] left-0'>
-          <img ref={imgRef} className='w-full h-full object-cover' src={TeamBackgroundImage} alt="" />
+          <img ref={imgRef} className='w-full h-full object-cover' src={TeamBackgroundImage} alt="teamMan" />
           <div className='w-[46%] flex flex-col items-center gap-6 absolute top-[78px] right-[10%]'>
             <h1 className='font-medium text-white border-b w-fit'>CREATE TEAM UNIFORMS</h1>
             <span className='font-bold text-[30px] text-center text-white'>Trusted by more than 1 million teams worldwide | Focusing on customized jerseys for 10 years</span>

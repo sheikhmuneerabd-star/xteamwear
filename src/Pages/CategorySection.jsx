@@ -42,6 +42,8 @@ function CategorySection() {
       setActiveCategory(cateName);
     }
   }, [cateName]);
+  const [stockOpen, setStockOpen] = useState(false);
+  const [outStockOpen, setOutStockOpen] = useState(false);
 
   return (
     <div>
@@ -49,8 +51,8 @@ function CategorySection() {
         <div className="flex">
           <div className="w-[19%] xl:block hidden">
             <LeftCate setActiveCategory={setActiveCategory} activeCategory={activeCategory} />
-            <ClearStockBox />
-            <Available />
+            <ClearStockBox setStockOpen={setStockOpen} stockOpen={stockOpen} outStockOpen={outStockOpen} setOutStockOpen={setOutStockOpen} />
+            <Available setStockOpen={setStockOpen} stockOpen={stockOpen} outStockOpen={outStockOpen} setOutStockOpen={setOutStockOpen} />
             <PriceCals />
             <FeaturedProducts />
           </div>

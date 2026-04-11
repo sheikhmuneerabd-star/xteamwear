@@ -294,16 +294,16 @@ function Navbar() {
                             </select>
                         </div>
                     </div>
-                    <div className='flex items-center gap-1 group cursor-pointer'>
+                    <Link to='/signInUp' className='flex items-center gap-1 group cursor-pointer'>
                         <PiUserLight className='text-[40px] group-hover:scale-110 transition-all duration-200' />
                         <div className='flex flex-col text-[13px]'>
                             <span>Sign In or Register</span>
                             <span className='font-semibold'>My account</span>
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </div>
-        </div>              
+        </div>   
 
         {/* non full screen */}
         <div className={`fixed top-0 left-0 right-0 z-[999] shadow-sm shadow-gray-200 transition-all duration-200 w-full h-[54px] bg-white xl:hidden flex`}>
@@ -579,7 +579,7 @@ function Navbar() {
                             <PiUserLight className='text-[28px]' />
                         </div>
                         <div className='relative'>
-                            <span className='absolute -top-[8px] -right-[9px] text-[13px] bg-black text-white w-6 h-6 flex justify-center items-center rounded-full'>0</span>
+                            <span className='absolute -top-[8px] -right-[9px] text-[13px] bg-black text-white w-6 h-6 flex justify-center items-center rounded-full'>{cart.length}</span>
                             <CgShoppingBag className='text-[28px]' />
                         </div>
                     </div>
