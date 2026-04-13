@@ -52,14 +52,14 @@ function CategorySection() {
           <div className="w-[19%] xl:block hidden">
             <LeftCate setActiveCategory={setActiveCategory} activeCategory={activeCategory} />
             <ClearStockBox setStockOpen={setStockOpen} stockOpen={stockOpen} outStockOpen={outStockOpen} setOutStockOpen={setOutStockOpen} />
-            <Available setStockOpen={setStockOpen} stockOpen={stockOpen} outStockOpen={outStockOpen} setOutStockOpen={setOutStockOpen} />
+            <Available categoryCardImg={categoryCardImg} setStockOpen={setStockOpen} stockOpen={stockOpen} outStockOpen={outStockOpen} setOutStockOpen={setOutStockOpen} />
             <PriceCals />
             <FeaturedProducts />
           </div>
           <div className="xl:w-[78.7%] w-[98%] mx-auto xl:ml-4">
             <div className="h-[1px] w-[98%] bg-gray-300 mt-3"></div>
             <RightViewPage grid={grid} selectHandle={setGrid} options={options} itemPerPageCard={itemPerPageCard} setItemPerPageCard={setItemPerPageCard} />
-            <CardCateSec grid={grid} itemPerPageCard={itemPerPageCard} activeCategory={activeCategory} />
+            <CardCateSec categoryCardImg={categoryCardImg} stockOpen={stockOpen} outStockOpen={outStockOpen} grid={grid} itemPerPageCard={itemPerPageCard} activeCategory={activeCategory} />
             <div className="flex justify-center mt-3">
               {itemPerPageCard < categoryCardImg.length && (
                 <button className='rounded text-sm md:w-[310px] w-[280px] md:h-[45px] h-[42px] mt-2 hover:bg-yellow-400 border-yellow-400 border-[1.5px] text-black font-medium transition-all duration-200 hover:-translate-y-1'

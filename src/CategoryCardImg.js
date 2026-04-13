@@ -59,6 +59,7 @@ const categoryCardImg = [
         oldPrice: 3068.79,
         newPrice: 2054.48,
         category: "Football",
+        available: true,
         variants: [
             {
             color: "lightBlue",
@@ -90,6 +91,7 @@ const categoryCardImg = [
         oldPrice: 4068.79,
         newPrice: 3054.48,
         category: "Football",
+        available: false,
         variants: [
             {
             color: "blackWhite",
@@ -111,6 +113,7 @@ const categoryCardImg = [
         oldPrice: 17068.79,
         newPrice: 13054.48,
         category: "Football",
+        available: true,
         variants: [
             {
             color: "purpleYellow",
@@ -154,6 +157,7 @@ const categoryCardImg = [
         oldPrice: 3068.79,
         newPrice: 2054.48,
         category: "Football",
+        available: true,
         variants: [
             {
             color: "lightBlue",
@@ -185,6 +189,7 @@ const categoryCardImg = [
         oldPrice: 4068.79,
         newPrice: 3054.48,
         category: "Football",
+        available: false,
         variants: [
             {
             color: "blackWhite",
@@ -206,6 +211,7 @@ const categoryCardImg = [
         oldPrice: 17068.79,
         newPrice: 13054.48,
         category: "Football",
+        available: true,
         variants: [
             {
             color: "purpleYellow",
@@ -249,6 +255,7 @@ const categoryCardImg = [
         oldPrice: 3068.79,
         newPrice: 2054.48,
         category: "Football",
+        available: true,
         variants: [
             {
             color: "lightBlue",
@@ -280,6 +287,7 @@ const categoryCardImg = [
         oldPrice: 4068.79,
         newPrice: 3054.48,
         category: "Football",
+        available: true,
         variants: [
             {
             color: "blackWhite",
@@ -301,6 +309,7 @@ const categoryCardImg = [
         oldPrice: 17068.79,
         newPrice: 13054.48,
         category: "Football",
+        available: false,
         variants: [
             {
             color: "purpleYellow",
@@ -344,6 +353,7 @@ const categoryCardImg = [
         oldPrice: 3068.79,
         newPrice: 2054.48,
         category: "Football",
+        available: true,
         variants: [
             {
             color: "lightBlue",
@@ -375,6 +385,7 @@ const categoryCardImg = [
         oldPrice: 4068.79,
         newPrice: 3054.48,
         category: "Football",
+        available: false,
         variants: [
             {
             color: "blackWhite",
@@ -396,6 +407,7 @@ const categoryCardImg = [
         oldPrice: 17068.79,
         newPrice: 13054.48,
         category: "Football",
+        available: true,
         variants: [
             {
             color: "purpleYellow",

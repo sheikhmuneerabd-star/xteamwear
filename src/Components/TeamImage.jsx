@@ -1,4 +1,4 @@
-import TeamBackgroundImage from '../assets/backgroundFront/teamMan.webp';
+import TeamBackgroundImage from '../assets/3manTeam.jpg';
 import TeamImageScr from '../assets/teamImageScr.webp';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';

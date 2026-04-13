@@ -6,7 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 
-function CardCateSec({ grid, itemPerPageCard, activeCategory }) {
+function CardCateSec({ categoryCardImg, stockOpen, outStockOpen, grid, itemPerPageCard, activeCategory }) {
 
     useGSAP(() => {
         ScrollTrigger.batch(".shirt2", {
@@ -23,6 +23,15 @@ function CardCateSec({ grid, itemPerPageCard, activeCategory }) {
         });
     }, []);
 
+    const filteredData = categoryCardImg
+    .filter(item => item.category === activeCategory)
+    .filter(item => {
+        if (stockOpen && outStockOpen) return true;
+        if (stockOpen) return item.available;
+        if (outStockOpen) return !item.available;
+        return true;
+    })
+
   return (
     <div className="mt-10">
         <div className={`grid
@@ -31,7 +40,7 @@ function CardCateSec({ grid, itemPerPageCard, activeCategory }) {
             ${grid === 3 ? "grid-cols-3" : ""}
         w-full gap-4`}>
             {
-                categoryCardImg.filter((item) => item.category === activeCategory).slice(0, itemPerPageCard).map((shirt) => (
+                filteredData.filter((item) => item.category === activeCategory).slice(0, itemPerPageCard).map((shirt) => (
                     <CateShirtCard key={shirt.id} shirt={shirt} grid={grid} />
                 ))
             }

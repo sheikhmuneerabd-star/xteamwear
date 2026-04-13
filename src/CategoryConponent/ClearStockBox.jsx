@@ -5,7 +5,10 @@ function ClearStockBox({ setStockOpen, stockOpen, outStockOpen, setOutStockOpen 
     <div className={`p-4 ${stockOpen || outStockOpen ? "block" : "hidden"}`}>
         <div className="flex justify-between">
             <h2 className="font-medium">REFINED BY</h2>
-            <span className="text-sm text-gray-600 underline cursor-pointer">Clear All</span>
+            <span className="text-sm text-gray-600 underline cursor-pointer" onClick={() => {
+                    setStockOpen(false);
+                    setOutStockOpen(false);
+                }}>Clear All</span>
         </div>
         <span className="text-sm text-gray-500 mt-1">14 results</span>
         <div className="flex gap-2">

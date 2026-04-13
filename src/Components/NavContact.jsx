@@ -4,6 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useEffect, useRef, useState } from "react";
 import { useGSAP } from '@gsap/react'
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 function NavContact() {
   const [countryFlagShow, setCountryFlagShow] = useState(false);
@@ -30,7 +31,18 @@ function NavContact() {
       document.removeEventListener('mousedown', handleClickOutside);
     }
   }, []);
-
+    const countries = [
+      { name: "USD", code: "us" },
+      { name: "EUR", code: "eu" },
+      { name: "GBP", code: "gb" },
+      { name: "CHF", code: "ch" },
+      { name: "AUD", code: "au" },
+      { name: "CAD", code: "ca" }
+      ];
+    const [selectedCountry, setSelectedCountry] = useState({
+      name: "USD",
+      code: "us"
+    });
   return (
     <div className="bg-slate-100 w-full h-[33px] xl:flex hidden">
         <div className="w-[93%] h-[33px] flex justify-between mx-auto">
@@ -50,37 +62,23 @@ function NavContact() {
           </div>
 
           <div className="flex gap-4 items-center text-gray-800 text-[13px] relative" ref={boxRef}>
-            <span className="cursor-pointer">FAQs</span>
-            <span className="cursor-pointer">Need Help?</span>
+            <Link to="/faqs" className="cursor-pointer">FAQs</Link>
+            <Link to="/contactUs" className="cursor-pointer">Need Help?</Link>
             <div className="flex items-center gap-[3px] cursor-pointer" onClick={() => setCountryFlagShow(!countryFlagShow)}>
-              <span className="text-black">USD</span>
+              <span className="text-black">{selectedCountry.name}</span>
               <IoIosArrowDown className="text-gray-600" />
             </div>
             <div id="countryBox" className="bg-white z-50 w-[98px] py-3 flex flex-col gap-[12px] justify-center items-center rounded-md absolute top-9 right-3 shadowNavCon opacity-0 pointer-events-none">
-              <div className="flex items-center gap-2 cursor-pointer group">
-                <img src="https://flagcdn.com/w40/us.png" className="w-6 h-6 rounded-full" />
-                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">USD</span>
-              </div>
-              <div className="flex items-center gap-2 cursor-pointer group">
-                <img src="https://flagcdn.com/w40/eu.png" className="w-6 h-6 rounded-full" />
-                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">EUR</span>
-              </div>
-              <div className="flex items-center gap-2 cursor-pointer group">
-                <img src="https://flagcdn.com/w40/gb.png" className="w-6 h-6 rounded-full" />
-                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">GBP</span>
-              </div>
-              <div className="flex items-center gap-2 cursor-pointer group">
-                <img src="https://flagcdn.com/w40/ch.png" className="w-6 h-6 rounded-full" />
-                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">CHF</span>
-              </div>
-              <div className="flex items-center gap-2 cursor-pointer group">
-                <img src="https://flagcdn.com/w40/au.png" className="w-6 h-6 rounded-full" />
-                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">AUD</span>
-              </div>
-              <div className="flex items-center gap-2 cursor-pointer group">
-                <img src="https://flagcdn.com/w40/ca.png" className="w-6 h-6 rounded-full" />
-                <span className="font-medium group-hover:border-black border-b-[1.5px] border-white">CAD</span>
-              </div>
+              {countries.map((item) => (
+                <div key={item.code} className="flex items-center gap-2 cursor-pointer group"
+                  onClick={() => {
+                    setSelectedCountry(item);
+                    setCountryFlagShow(false);
+                  }}>
+                  <img src={`https://flagcdn.com/w40/${item.code}.png`} className="w-6 h-6 rounded-full" />
+                  <span className={`font-medium group-hover:border-black ${selectedCountry.name === item.name ? "border-black" : "border-white"} border-b-[1.5px]`}>{item.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

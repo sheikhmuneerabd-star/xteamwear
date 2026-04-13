@@ -2,7 +2,6 @@ import logo from '../assets/logo.svg'
 import { IoSearch } from "react-icons/io5";
 import { PiShoppingCartLight } from "react-icons/pi";
 import { PiUserLight } from "react-icons/pi";
-import { IoMdArrowDropdown } from "react-icons/io";
 
 import { HiMiniBars3 } from "react-icons/hi2";
 import { IoIosSearch } from "react-icons/io";
@@ -23,6 +22,10 @@ import { HiOutlineUserCircle } from "react-icons/hi2";
 import { RiUserAddLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import { dataContext } from '../UseContext/UseContext';
+import { useGSAP } from '@gsap/react'
+import gsap from "gsap";
+
+import { IoMdArrowDropdown } from "react-icons/io";
 
 
 function Navbar() {
@@ -94,7 +97,7 @@ function Navbar() {
     const categoriesCategory = [
         {
             id: 1,
-            name: "FOOTBALL",
+            name: "Football",
             items: [
             "Go To FOOTBALL",
             "Go To FOOTBALL2",
@@ -146,6 +149,43 @@ function Navbar() {
     }, [toggle])
 
     const { cart } = useContext(dataContext); 
+
+    const [languageCountry, setLanguageCountry] = useState(false);
+    const languageBoxRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.to("#languageCountryBox", {
+      opacity:languageCountry ? 1 : 0,
+      y:languageCountry ? 0 : -10,
+      pointerEvents:languageCountry ? "auto" : "none",
+      duration:0.3,
+      ease:"power2.out"
+    })
+  }, [languageCountry]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if(languageBoxRef.current && !languageBoxRef.current.contains(event.target)){
+        setLanguageCountry(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside); 
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, []);
+
+  const countries = [
+    { name: "Pakistan", code: "pk" },
+    { name: "Iran", code: "ir" },
+    { name: "Turkey", code: "tr" },
+    { name: "Yemen", code: "ye" },
+    { name: "China", code: "cn" },
+    ];
+  const [selectedCountry, setSelectedCountry] = useState({
+    name: "Pakistan",
+    code: "pk"
+  });
   return (
     <div>
         {/* full screen */}
@@ -278,7 +318,7 @@ function Navbar() {
                 </div>
                 {/* cart and account */}
                 <div className='flex gap-5'>
-                    <div>
+                    <div className='flex flex-col justify-center items-center'>
                         <Link to="/cart" className='flex items-center gap-2 group cursor-pointer'>
                             <PiShoppingCartLight className='text-[32px] group-hover:scale-110 transition-all duration-200' />
                             <div className='flex flex-col justify-center text-[13px]'>
@@ -286,12 +326,23 @@ function Navbar() {
                                 <span>Cart</span>
                             </div>
                         </Link>
-                        <div>
-                            <select>
-                                <option value="pakistan">Pakistan</option>
-                                <option value="USD">USD</option>
-                                <option value="Aus">Aus</option>
-                            </select>
+                        <div className='relative' ref={languageBoxRef}>
+                            <div className="flex items-center gap-[4px] cursor-pointer" onClick={() => setLanguageCountry(!languageCountry)}>
+                                <img src={`https://flagcdn.com/w40/${selectedCountry.code}.png`} className="w-6 h-6" />
+                                <IoMdArrowDropdown className="text-gray-600" />
+                            </div>
+                            <div id="languageCountryBox" className={`bg-white z-50 w-[120px] py-3 flex flex-col gap-[12px] justify-center items-center rounded-md absolute top-8 -left-6 shadowNavCon`}>
+                                {countries.map((item) => (
+                                    <div key={item.code} className="w-[85px] flex items-center gap-2 cursor-pointer group"
+                                        onClick={() => {
+                                            setSelectedCountry(item);
+                                            setLanguageCountry(false);
+                                        }}>
+                                            <img src={`https://flagcdn.com/w40/${item.code}.png`} className="w-6 h-6" />
+                                            <span className={`font-medium group-hover:border-black ${selectedCountry.name === item.name ? "border-black" : ""} border-b-[1.5px]`}>{item.name}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <Link to='/signInUp' className='flex items-center gap-1 group cursor-pointer'>
@@ -332,9 +383,9 @@ function Navbar() {
                                     {/* Menu Section */}
                                     <div className={`${openMenu ? 'block' : 'hidden'}`}>
                                         <div className='relative'>
-                                            <div className='flex text-[17px] items-center justify-between border-b border-gray-300 p-3'>
+                                            <Link to="/" className='flex text-[17px] items-center justify-between border-b border-gray-300 p-3'>
                                                 <h2 className='font-medium'>Home</h2>
-                                            </div>
+                                            </Link>
                                         </div>
                                         {
                                             categoriesMenu.map((cate) => (
@@ -366,10 +417,10 @@ function Navbar() {
                                         {
                                             categoriesCategory.map((cateCate) => (
                                                 <div key={cateCate.id} className='relative'>
-                                                    <div className='flex text-[17px] items-center justify-between border-b border-gray-300 p-3' onClick={() => setActiveCategory(cateCate.id)}>
+                                                    <Link to={`/categorySection/${cateCate.name}`} className='flex text-[17px] items-center justify-between border-b border-gray-300 p-3' onClick={() => setActiveCategory(cateCate.id)}>
                                                         <h2 className='font-medium'>{cateCate.name}</h2>
                                                         <MdOutlineArrowForwardIos />
-                                                    </div>
+                                                    </Link>
                                                     <div className={`fixed overflow-scroll top-0 left-0 h-full w-[370px] bg-white z-50 transition-all duration-200 ${activeCategory === cateCate.id ? "translate-x-0" : "-translate-x-full"}`}>
                                                         <div className='bg-gray-100'>
                                                             <div className='flex font-medium justify-between p-3 items-center w-[225px]'>
@@ -390,14 +441,14 @@ function Navbar() {
                                         }
                                     </div>
                                     <div>
-                                        <div className='flex gap-1 items-center p-3 border-b border-gray-300'>
+                                        <Link to="/signInUp" className='flex gap-1 items-center p-3 border-b border-gray-300'>
                                             <HiOutlineUserCircle className='text-[24px]' />
                                             <span className='text-[16px]'>Sign In</span>
-                                        </div>
-                                        <div className='flex gap-1 items-center p-3 border-b border-gray-300'>
+                                        </Link>
+                                        <Link to="/signInUp" className='flex gap-1 items-center p-3 border-b border-gray-300'>
                                             <RiUserAddLine className='text-[24px]' />
                                             <span className='text-[16px]'>Create an account</span>
-                                        </div>
+                                        </Link>
                                     </div>
                                     <div>
                                         <div className='p-3 bg-gray-100'>
@@ -578,10 +629,10 @@ function Navbar() {
                         <div>
                             <PiUserLight className='text-[28px]' />
                         </div>
-                        <div className='relative'>
+                        <Link to="/cart" className='relative'>
                             <span className='absolute -top-[8px] -right-[9px] text-[13px] bg-black text-white w-6 h-6 flex justify-center items-center rounded-full'>{cart.length}</span>
                             <CgShoppingBag className='text-[28px]' />
-                        </div>
+                        </Link>
                     </div>
                 </div>
         </div>

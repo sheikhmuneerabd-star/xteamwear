@@ -7,14 +7,24 @@ import { FaYoutube } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 function FooterContact() {
-    const [openCom, setOpenCom] = useState(false);
-    const [openSer, setOpenSer] = useState(false);
-    const [openHlp, setOpenHlp] = useState(false);
+    const [openIndex, setOpenIndex] = useState(null);
+    const abdoutContainerRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (!abdoutContainerRef.current?.contains(e.target)) {
+                setOpenIndex(null);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     useGSAP(() => {
         let tl = gsap.timeline();
@@ -33,6 +43,38 @@ function FooterContact() {
             }
         })
     }, []);
+
+    const footerAbout = [
+        {
+            id:1,
+            title: 'COMPANY INFO',
+            subTitle: [
+                'About Us',
+                'Contact Us',
+                'After-Sales Service'
+            ]
+        },
+        {
+            id:2,
+            title: 'SERVICE',
+            subTitle: [
+                'About Us',
+                'Contact Us',
+                'After-Sales Service'
+            ]
+        },
+        {
+            id:3,
+            title: 'HELP & SUPPORT',
+            subTitle: [
+                'About Us',
+                'Contact Us',
+                'After-Sales Service'
+            ]
+        }
+    ]
+    
+    const contentRef = useRef(null);
 
   return (
     <div className='bg-gray-100 footerContact'>
@@ -108,46 +150,43 @@ function FooterContact() {
             </div>
         </div>
 
-        <div className="bg-gray-100 mt-20 mb-5 md:hidden block">
-            <div>
-                <div className="border-b border-black cursor-pointer" onClick={() => setOpenCom(!openCom)}>
-                    <div className="flex items-center justify-between ml-auto w-[65%] font-medium p-1">
-                        <h2 className="text-[20px]">COMPANY INFO</h2>
-                        <span className={`text-[17px] mr-1 ${openCom ? 'rotate-0' : 'rotate-2'}`}>{openCom ? <FaMinus /> : <FaPlus />}</span>
+        <div className="bg-gray-100 mt-20 mb-5 md:hidden block" ref={abdoutContainerRef}>
+            {footerAbout.map((item, index) => {
+                const isOpen = openIndex === index;
+                return (
+                    <div key={item.id}>
+                        <div
+                            aria-expanded={isOpen} 
+                            aria-controls={`section-${index}`}
+                            className="border-b border-black cursor-pointer" 
+                            onClick={() => setOpenIndex(isOpen ? null : index)}
+                        >
+                            <div className="flex items-center justify-between ml-auto w-[66%] font-medium p-1">
+                                <h2 className="text-[20px]">{item.title}</h2>
+                                <div className="relative mb-2 mr-4">
+                                    <div className={`absolute transition-all duration-500 ${openIndex === index ? "rotate-90" : ""} top-0 left-1 w-[2px] h-[10px] bg-gray-800`}></div>
+                                    <div className={`absolute transition-all duration-500 ${openIndex === index ? "rotate-180" : ""} top-1 w-[10px] h-[2px] bg-gray-800`}></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div 
+                            id={`section-${index}`}
+                            role="region"
+                            ref={contentRef}
+                            style={{ 
+                                height: isOpen 
+                                    ? contentRef.current?.scrollHeight + "px"
+                                    : "0px"
+                             }}
+                            className="transition-all duration-500 overflow-hidden flex flex-col items-center"
+                        >
+                            {item.subTitle.map((subItem) => (
+                                <p className="hover:underline cursor-pointer">{subItem}</p>
+                            ))}
+                        </div>
                     </div>
-                </div>
-                <div className={`text-center mb-3 space-y-2 ${openCom ? "block" : "hidden"}`}>
-                    <p className="hover:underline cursor-pointer">About Us</p>
-                    <p className="hover:underline cursor-pointer">Contact Us</p>
-                    <p className="hover:underline cursor-pointer">After-Sales Service</p>
-                </div>
-            </div>
-            <div>
-                <div className="border-b border-black cursor-pointer" onClick={() => setOpenSer(!openSer)}>
-                    <div className="flex items-center justify-between ml-auto w-[65%] font-medium p-1">
-                        <h2 className="text-[20px]">SERVICE</h2>
-                        <span className="text-[17px] mr-1">{openSer ? <FaMinus /> : <FaPlus />}</span>
-                    </div>
-                </div>
-                <div className={`text-center mb-3 space-y-2 ${openSer ? "block" : "hidden"}`}>
-                    <p className="hover:underline cursor-pointer">About Us</p>
-                    <p className="hover:underline cursor-pointer">Contact Us</p>
-                    <p className="hover:underline cursor-pointer">After-Sales Service</p>
-                </div>
-            </div>
-            <div>
-                <div className="border-b border-black cursor-pointer" onClick={() => setOpenHlp(!openHlp)}>
-                    <div className="flex items-center justify-between ml-auto w-[65%] font-medium p-1">
-                        <h2 className="text-[20px]">HELP & SUPPORT</h2>
-                        <span className="text-[17px] mr-1">{openHlp ? <FaMinus /> : <FaPlus />}</span>
-                    </div>
-                </div>
-                <div className={`text-center mb-3 space-y-2 ${openHlp ? "block" : "hidden"}`}>
-                    <p className="hover:underline cursor-pointer">About Us</p>
-                    <p className="hover:underline cursor-pointer">Contact Us</p>
-                    <p className="hover:underline cursor-pointer">After-Sales Service</p>
-                </div>
-            </div>
+                )
+            })}
 
             <div className='md:pl-0 pl-6 mt-8'>
                 <div>
