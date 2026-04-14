@@ -142,7 +142,7 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
                 <span>{standard ? 'Standard' : 'Bespoke'}</span>
             </div>
             <div className='flex gap-3'>
-                <button 
+                <button
                     className={`${standard ? 'bg-black text-gray-100' : 'text-gray-700 border border-gray-600'} w-[105px] rounded font-semibold text-lg h-[40px]`} 
                     onClick={() => {
                         setStandard(true);
