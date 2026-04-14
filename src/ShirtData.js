@@ -163,6 +163,294 @@ const data = [
         ]
       }
     ]
+  },
+  {
+    id: 100,
+    name: "Dark Clouds - Custom Soccer Jersey For Men Sublimation FT060109S",
+    oldPrice: 10068.79,
+    newPrice: 8054.48,
+    variants: [
+      {
+        color: "GREEN & BLACK",
+        icon: imageFront,
+        images: [
+          imageFront,
+          imageBack,
+          whiteFrontSim,
+          whiteBackSim
+        ]
+      },
+      {
+        color: "Grey-Blue",
+        icon: blueFront,
+        images: [
+          blueFront,
+          blueBack,
+          blueSimpleFront,
+          blueSimpleBack
+        ]
+      },
+      {
+        color: "Red",
+        icon: redFront,
+        images: [
+          redFront,
+          redBack,
+          redFrontSim,
+          redBackSim]
+      }
+    ]
+  },
+
+  {
+    id: 101,
+    name: "Premium Sports Shirt - Custom Soccer Jersey For Men Sublimation",
+    oldPrice: 10128.79,
+    newPrice: 8050.82,
+    variants: [
+      {
+        color: "Red",
+        icon: redFront,
+        images: [
+          redFront,
+          redBack,
+          redFrontSim,
+          redBackSim
+        ]
+      },
+      {
+        color: "Blue",
+        icon: blueFrontTo,
+        images: [
+          blueFrontTo,
+          blueBackTo,
+          BlueFrontSim,
+          BlueBackSim
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 102,
+    name: "Elite Performance Jersey - Custom Soccer Jersey For Men Sublimation FT062033S",
+    oldPrice: 9048.21,
+    newPrice: 7044.38,
+    variants: [
+      {
+        color: "Grey-Blue",
+        icon: blueFront,
+        images: [
+          blueFront,
+          blueBack,
+          blueSimpleFront,
+          blueSimpleBack
+        ]
+      },
+      {
+        color: "Red",
+        icon: redFront,
+        images: [
+          redFront,
+          redBack,
+          redFrontSim,
+          redBackSim
+        ]
+      },
+      {
+        color: "GREEN & BLACK",
+        icon: imageFront,
+        images: [
+          imageFront,
+          imageBack,
+          whiteFrontSim,
+          whiteBackSim
+        ]
+      },
+      {
+        color: "Blue",
+        icon: blueFrontTo,
+        images: [
+          blueFrontTo,
+          blueBackTo,
+          BlueFrontSim,
+          BlueBackSim
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 103,
+    name: "Classic Sports Kit - Custom Soccer Jersey For Men Sublimation FT030402S",
+    oldPrice: 13198.48,
+    newPrice: 11054.28,
+    variants: [
+      {
+        color: "Blue",
+        icon: blueFrontTo,
+        images: [
+          blueFrontTo,
+          blueBackTo,
+          BlueFrontSim,
+          BlueBackSim
+        ]
+      },
+      {
+        color: "GREEN & BLACK",
+        icon: imageFront,
+        images: [
+          imageFront,
+          imageBack,
+          whiteFrontSim,
+          whiteBackSim
+        ]
+      }
+    ]
+  },
+  {
+    id: 104,
+    name: "Dark Clouds - Custom Soccer Jersey For Men Sublimation FT060109S",
+    oldPrice: 10068.79,
+    newPrice: 8054.48,
+    variants: [
+      {
+        color: "GREEN & BLACK",
+        icon: imageFront,
+        images: [
+          imageFront,
+          imageBack,
+          whiteFrontSim,
+          whiteBackSim
+        ]
+      },
+      {
+        color: "Grey-Blue",
+        icon: blueFront,
+        images: [
+          blueFront,
+          blueBack,
+          blueSimpleFront,
+          blueSimpleBack
+        ]
+      },
+      {
+        color: "Red",
+        icon: redFront,
+        images: [
+          redFront,
+          redBack,
+          redFrontSim,
+          redBackSim]
+      }
+    ]
+  },
+
+  {
+    id: 105,
+    name: "Premium Sports Shirt - Custom Soccer Jersey For Men Sublimation",
+    oldPrice: 10128.79,
+    newPrice: 8050.82,
+    variants: [
+      {
+        color: "Red",
+        icon: redFront,
+        images: [
+          redFront,
+          redBack,
+          redFrontSim,
+          redBackSim
+        ]
+      },
+      {
+        color: "Blue",
+        icon: blueFrontTo,
+        images: [
+          blueFrontTo,
+          blueBackTo,
+          BlueFrontSim,
+          BlueBackSim
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 106,
+    name: "Elite Performance Jersey - Custom Soccer Jersey For Men Sublimation FT062033S",
+    oldPrice: 9048.21,
+    newPrice: 7044.38,
+    variants: [
+      {
+        color: "Grey-Blue",
+        icon: blueFront,
+        images: [
+          blueFront,
+          blueBack,
+          blueSimpleFront,
+          blueSimpleBack
+        ]
+      },
+      {
+        color: "Red",
+        icon: redFront,
+        images: [
+          redFront,
+          redBack,
+          redFrontSim,
+          redBackSim
+        ]
+      },
+      {
+        color: "GREEN & BLACK",
+        icon: imageFront,
+        images: [
+          imageFront,
+          imageBack,
+          whiteFrontSim,
+          whiteBackSim
+        ]
+      },
+      {
+        color: "Blue",
+        icon: blueFrontTo,
+        images: [
+          blueFrontTo,
+          blueBackTo,
+          BlueFrontSim,
+          BlueBackSim
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 107,
+    name: "Classic Sports Kit - Custom Soccer Jersey For Men Sublimation FT030402S",
+    oldPrice: 13198.48,
+    newPrice: 11054.28,
+    variants: [
+      {
+        color: "Blue",
+        icon: blueFrontTo,
+        images: [
+          blueFrontTo,
+          blueBackTo,
+          BlueFrontSim,
+          BlueBackSim
+        ]
+      },
+      {
+        color: "GREEN & BLACK",
+        icon: imageFront,
+        images: [
+          imageFront,
+          imageBack,
+          whiteFrontSim,
+          whiteBackSim
+        ]
+      }
+    ]
   }
 ]
 

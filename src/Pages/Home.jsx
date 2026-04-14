@@ -6,6 +6,8 @@ import ShirtCard from "../Components/ShirtCard"
 import TestimonialSlider from "../Components/SliderImages"
 import TeamImage from "../Components/TeamImage"
 import gsap from "gsap"
+import { useState } from "react"
+import data from "../ShirtData"
 
 function Home() {
   useGSAP(() => {
@@ -67,6 +69,9 @@ function Home() {
         }
       })
     }, []);
+
+    const [showMore, setShowMore] = useState(4);
+
   return (
     <div>
         <TeamImage />
@@ -75,10 +80,17 @@ function Home() {
         <div className="bg-gray-100">
           <h3 className="ml-[40px] text-2xl font-medium pt-10 pb-8">LATEST HOT PRODUCTS</h3>
           <div className="w-[93.8%] mx-auto">
-            <ShirtCard />
+            <ShirtCard showMore={showMore} />
           </div>
           <div className="flex justify-center pb-10 showMore">
-            <button className="bg-white text-center text-[14px] font-medium w-[300px] h-[42px] rounded-md shadow-md mt-10 transition-all duration-200 hover:border-black border-[1.3px] hover:-translate-y-2">SHOW MORE</button>
+            {showMore < data.length && (
+              <button
+                onClick={() => setShowMore(showMore + 4)}
+                className="bg-white text-center text-[14px] font-medium w-[300px] h-[42px] rounded-md shadow-md mt-10 transition-all duration-200 hover:border-black border-[1.3px] hover:-translate-y-2"
+              >
+                SHOW MORE
+              </button>
+            )}
           </div>
         </div>
         <TestimonialSlider />

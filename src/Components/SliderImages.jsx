@@ -16,7 +16,7 @@ function TestimonialSlider() {
     bluebg,
     dads,
     childrens,
-    shirt29,
+    shirt29
   ];
 
   return (

@@ -35,7 +35,7 @@ function FactoryCard() {
               opacity: 0,
               duration: 0.8,
               stagger: 0.15,
-          });
+          }); 
         }
       });
     }, []);
@@ -65,7 +65,7 @@ function FactoryCard() {
                    src={item.img} />
 
               <div className='pb-2'>
-                <h2 className='text-[17.5px] group-hover:text-blue-600 transition-all duration-200 group-hover:underline'>
+                <h2 className='text-[17.5px] group-h  over:text-blue-600 transition-all duration-200 group-hover:underline'>
                   {item.title}
                 </h2>
 

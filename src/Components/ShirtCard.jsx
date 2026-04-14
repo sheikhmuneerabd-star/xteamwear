@@ -6,7 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 
-function ShirtCard() {
+function ShirtCard({showMore}) {
 
         useGSAP(() => {
             ScrollTrigger.batch(".shirt", {
@@ -27,7 +27,7 @@ function ShirtCard() {
     <>
         <div className='grid grid-cols-1 min-[375px]:grid-cols-2 min-[475px]:grid-cols-2 min-[768px]:grid-cols-3 min-[1024px]:grid-cols-4 min-[1440px]:grid-cols-4 w-full gap-4'>
             {
-                data.map((shirt) => (
+                data.slice(0, showMore).map((shirt) => (
                     <ShirtItem  key={shirt.id} shirt={shirt} />
                 ))
             }

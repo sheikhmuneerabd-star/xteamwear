@@ -18,11 +18,10 @@ function CategorySection() {
   const options = [10, 20, 25, 30, 50];
 
   const handleShowMore = () => {
-
     const currentIndex = options.indexOf(itemPerPageCard);
 
     if(currentIndex < options.length - 1){
-    setItemPerPageCard(options[currentIndex + 1]);
+      setItemPerPageCard(options[currentIndex + 1]);
     }
 
     setTimeout(()=>{
