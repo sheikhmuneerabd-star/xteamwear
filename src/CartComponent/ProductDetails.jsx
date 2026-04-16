@@ -9,10 +9,6 @@ function ProductDetails() {
     let totalQty = cart?.reduce((acc, item) => acc + (Number(item.qty) || 0), 0);
     let price = Number(product?.newPrice) || 0;
     let total = totalQty * price;
-    console.log("price:", price);
-    console.log("qty:", totalQty);
-    console.log("price:", product?.newPrice);
-    console.log("total:", total);
   return (
     <div className="mt-8 flex xl:flex-row flex-col justify-between">
         <div className="xl:w-[65%] w-full overflow-x-auto">

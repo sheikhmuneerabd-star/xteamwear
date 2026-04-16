@@ -14,7 +14,7 @@ import { dataContext } from '../UseContext/UseContext';
 function SizingSystem({ product, selectedColor, setSelectedColor }) {
     const { addToCart, setSizingDetailData } = useContext(dataContext);
 
-    const selectedVariant = product.variants.find((v) => v.color === selectedColor) || product.variants[0] ;
+    const selectedVariant = product.variants.find((v) => v.color === selectedColor) || product.variants[0];
 
     const [activeImage, setActiveImage] = useState(selectedVariant.images[0]);
 
@@ -59,7 +59,19 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
 
     const handlePlayerChange = (index, field, value) => {
         const updatedPlayers = [...formData.players];
-        updatedPlayers[index][field] = value;
+        
+        if (!updatedPlayers[index]) {
+            updatedPlayers[index] = {
+                name: "",
+                number: "",
+                size: ""
+            }
+        }
+
+        updatedPlayers[index] = {
+            ...updatedPlayers[index],
+            [field]: value
+        }
 
         setFormData(prev => ({
             ...prev,
@@ -101,9 +113,9 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
             sponsorLocation: "",
             note: "",
             players: Array(players).fill({
-            size: "",
-            name: "",
-            number: ""
+                size: "",
+                name: "",
+                number: ""
             })
         });
         setPreview(null);
@@ -261,6 +273,7 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
                     <p className='font-medium mt-1'>Number of Players</p>
                     <select className='border mt-1 border-black w-full p-2 outline-none font-medium rounded cursor-pointer'
                         onChange={(e) => setPlayers(Number(e.target.value))}
+                        value={players}
                     >
                         <option value="">Please choose</option>
                         <option value="1">1</option>

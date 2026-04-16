@@ -63,7 +63,6 @@ function ProductsDetailsDemo({ cart, sizingDetailData, id, name, oldPrice, newPr
                 <div className="w-full h-full flex items-center justify-center text-2xl hover:bg-gray-300 cursor-pointer"
                 onClick={() => {
                     const item = cart.find(i => i.id === id);
-                    console.log(item);
                     if(item?.qty > 1){
                         decrease(id);
                     }

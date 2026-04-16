@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 function ImageLeftPart({ product, selectedColor }) {
 
   const selectedVariant =
-    product.variants.find((v) => v.color === selectedColor) || product.variants[0];;
+    product.variants.find((v) => v.color === selectedColor) || product.variants[0];
 
   const [activeImage, setActiveImage] = useState(
     selectedVariant.images[0]
