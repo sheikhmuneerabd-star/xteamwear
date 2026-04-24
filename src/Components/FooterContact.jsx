@@ -180,8 +180,8 @@ function FooterContact() {
                              }}
                             className="transition-all duration-500 overflow-hidden flex flex-col items-center"
                         >
-                            {item.subTitle.map((subItem) => (
-                                <p className="hover:underline cursor-pointer">{subItem}</p>
+                            {item.subTitle.map((subItem, index) => (
+                                <p key={index} className="hover:underline cursor-pointer">{subItem}</p>
                             ))}
                         </div>
                     </div>
