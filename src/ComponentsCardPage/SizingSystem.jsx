@@ -180,19 +180,19 @@ function SizingSystem({ product, selectedColor, setSelectedColor }) {
                 <div>
                     <p className='font-medium'>Step 2:Team Information</p>
                     <div className='flex flex-wrap gap-3 text-black mt-1'>
-                        <label class="flex items-center gap-1 cursor-pointer" onChange={() => setTeamName(prev => !prev)}>
+                        <label className="flex items-center gap-1 cursor-pointer" onChange={() => setTeamName(prev => !prev)}>
                             <input className='w-5 h-5 border border-gray-300 accent-blue-500 rounded-md checked:bg-blue-600 checked:border-blue-600 text-white' type="checkbox"/>
                             <span className='font-semibold text-gray-800'>Team Name</span>
                         </label>
-                        <label class="flex items-center gap-1 cursor-pointer" onChange={() => setPlayerNumber(prev => !prev)}>
+                        <label className="flex items-center gap-1 cursor-pointer" onChange={() => setPlayerNumber(prev => !prev)}>
                             <input className='w-5 h-5 border border-gray-300 accent-blue-500 rounded-md checked:bg-blue-600 checked:border-blue-600 text-white' type="checkbox" />
                             <span className='font-semibold text-gray-800'>Player Number</span>
                         </label>
-                        <label class="flex items-center gap-1 cursor-pointer" onChange={() => setLogo(prev => !prev)}>
+                        <label className="flex items-center gap-1 cursor-pointer" onChange={() => setLogo(prev => !prev)}>
                             <input className='w-5 h-5 border border-gray-300 accent-blue-500 rounded-md checked:bg-blue-600 checked:border-blue-600 text-white' type="checkbox" />
                             <span className='font-semibold text-gray-800'>Logo</span>
                         </label>
-                        <label class="flex items-center gap-1 cursor-pointer" onChange={() => setSponsor(prev => !prev)}>
+                        <label className="flex items-center gap-1 cursor-pointer" onChange={() => setSponsor(prev => !prev)}>
                             <input className='w-5 h-5 border border-gray-300 accent-blue-500 rounded-md checked:bg-blue-600 checked:border-blue-600 text-white' type="checkbox" />
                             <span className='font-semibold text-gray-800'>Sponsor</span>
                         </label>

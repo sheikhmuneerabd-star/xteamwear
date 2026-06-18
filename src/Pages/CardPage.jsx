@@ -22,11 +22,14 @@ function CardPage() {
   const { id, color } = useParams();
 
   const product = data.find((item) => item.id === Number(id)) || sPShirtData.find((item) => item.id === Number(id)) || cateSlideData.find((item) => item.id === Number(id)) || categoryCardImg.find((item) => item.id === Number(id)) || CartsProduct.find((item) => item.id === Number(id));
-  if(product){
-    setProduct(product);
-  } else {
-    setProduct();
-  }
+  useEffect(() => {
+    if (product) {
+      setProduct(product);
+    } else {
+      setProduct();
+    }
+  }, [product, setProduct]);
+  
   if (!product) return <div>Product Not Found</div>;
 
   const defaultVariant = product.variants[0];
