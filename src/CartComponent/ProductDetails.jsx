@@ -29,7 +29,7 @@ function ProductDetails() {
                 <h1 className="font-medium text-sm mb-2">Additional Comments</h1>
 
                 <textarea
-                className="xl:w-[75%] w-full h-[90px] outline-none border border-gray-400 rounded-md pt-3 pl-4 text-sm placeholder-gray-600"
+                className="xl:w-[75%] w-full h-[90px] resize-none outline-none border border-gray-400 rounded-md pt-3 pl-4 text-sm placeholder-gray-600"
                 placeholder="Special instruction for seller..."
                 ></textarea>
 
