@@ -1,21 +1,21 @@
-import blackBag1 from '../src/assets/categoryPageSlideImg/blackBag1.avif';
-import blackBagFront1 from '../src/assets/categoryPageSlideImg/blackBagFront1.avif';
-import blackBagBack1 from '../src/assets/categoryPageSlideImg/blackBagBack1.avif';
-import blackBagFrontSim1 from '../src/assets/categoryPageSlideImg/blackBagFrontSim1.avif';
+import blackBag1 from './assets/categoryPageSlideImg/blackBag1.avif';
+import blackBagFront1 from './assets/categoryPageSlideImg/blackBagFront1.avif';
+import blackBagBack1 from './assets/categoryPageSlideImg/blackBagBack1.avif';
+import blackBagFrontSim1 from './assets/categoryPageSlideImg/blackBagFrontSim1.avif';
 
-import blackBag2Front from '../src/assets/categoryPageSlideImg/blackBag2Front.avif';
-import blackBag2Front2 from '../src/assets/categoryPageSlideImg/blackBag2Front2.webp';
-import blackBag2Front3 from '../src/assets/categoryPageSlideImg/blackBag2Front3.avif';
-import blackBag2FrontLogo from '../src/assets/categoryPageSlideImg/blackBag2FrontLogo.avif';
+import blackBag2Front from './assets/categoryPageSlideImg/blackBag2Front.avif';
+import blackBag2Front2 from './assets/categoryPageSlideImg/blackBag2Front2.webp';
+import blackBag2Front3 from './assets/categoryPageSlideImg/blackBag2Front3.avif';
+import blackBag2FrontLogo from './assets/categoryPageSlideImg/blackBag2FrontLogo.avif';
 
-import whitefront1 from '../src/assets/categoryPageSlideImg/whitefront1.avif';
-import whiteback1 from '../src/assets/categoryPageSlideImg/whiteback1.avif';
-import whiteSim from '../src/assets/categoryPageSlideImg/whiteSim.avif';
-import whiteBackSim from '../src/assets/categoryPageSlideImg/whiteBackSim.avif';
+import whitefront1 from './assets/categoryPageSlideImg/whitefront1.avif';
+import whiteback1 from './assets/categoryPageSlideImg/whiteback1.avif';
+import whiteSim from './assets/categoryPageSlideImg/whiteSim.avif';
+import whiteBackSim from './assets/categoryPageSlideImg/whiteBackSim.avif';
 
-import blackBag3Front from '../src/assets/categoryPageSlideImg/blackBag3Front.avif';
-import blackBag3Front2 from '../src/assets/categoryPageSlideImg/blackBag3Front2.avif';
-import blackBag3Sim from '../src/assets/categoryPageSlideImg/blackBag3Sim.avif';
+import blackBag3Front from './assets/categoryPageSlideImg/blackBag3Front.avif';
+import blackBag3Front2 from './assets/categoryPageSlideImg/blackBag3Front2.avif';
+import blackBag3Sim from './assets/categoryPageSlideImg/blackBag3Sim.avif';
 
 const cateSlideData = [
     {

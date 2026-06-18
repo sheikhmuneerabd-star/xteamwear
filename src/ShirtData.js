@@ -1,23 +1,23 @@
-import imageFront from '../src/assets/shirtsImages/front-shirt.jpg'
-import imageBack from '../src/assets/shirtsImages/back-shirt.jpg'
-import blueFront from '../src/assets/shirtsImages/blueFront.webp'
-import blueBack from '../src/assets/shirtsImages/blueBack.webp'
-import blueFrontTo from '../src/assets/shirtsImages/blueToFront.webp'
-import blueBackTo from '../src/assets/shirtsImages/blueToBack.webp'
-import redFront from '../src/assets/shirtsImages/redFront.webp'
-import redBack from '../src/assets/shirtsImages/redBack.webp'
+import imageFront from './assets/shirtsImages/front-shirt.jpg'
+import imageBack from './assets/shirtsImages/back-shirt.jpg'
+import blueFront from './assets/shirtsImages/blueFront.webp'
+import blueBack from './assets/shirtsImages/blueBack.webp'
+import blueFrontTo from './assets/shirtsImages/blueToFront.webp'
+import blueBackTo from './assets/shirtsImages/blueToBack.webp'
+import redFront from './assets/shirtsImages/redFront.webp'
+import redBack from './assets/shirtsImages/redBack.webp'
 
-import blueSimpleFront from '../src/assets/clickCardImgSld/simpleFront.avif'
-import blueSimpleBack from '../src/assets/clickCardImgSld/simpleBack.avif'
+import blueSimpleFront from './assets/clickCardImgSld/simpleFront.avif'
+import blueSimpleBack from './assets/clickCardImgSld/simpleBack.avif'
 
-import whiteFrontSim from '../src/assets/clickCardImgSld/whiteFrontSim.avif'
-import whiteBackSim from '../src/assets/clickCardImgSld/whiteBackSim.avif'
+import whiteFrontSim from './assets/clickCardImgSld/whiteFrontSim.avif'
+import whiteBackSim from './assets/clickCardImgSld/whiteBackSim.avif'
 
-import redFrontSim from '../src/assets/clickCardImgSld/redFrontSim.avif'
-import redBackSim from '../src/assets/clickCardImgSld/redBackSim.avif'
+import redFrontSim from './assets/clickCardImgSld/redFrontSim.avif'
+import redBackSim from './assets/clickCardImgSld/redBackSim.avif'
 
-import BlueFrontSim from '../src/assets/clickCardImgSld/BlueFrontSim.avif'
-import BlueBackSim from '../src/assets/clickCardImgSld/blueBackSim.avif'
+import BlueFrontSim from './assets/clickCardImgSld/BlueFrontSim.avif'
+import BlueBackSim from './assets/clickCardImgSld/blueBackSim.avif'
 
 const data = [
   {

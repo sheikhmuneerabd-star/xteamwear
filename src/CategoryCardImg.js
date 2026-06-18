@@ -1,54 +1,54 @@
 // Football
-import lightBlue1Front from '../src/assets/categoryCardImg/lightBlue1Front.avif';
-import blackYellow1Back from '../src/assets/categoryCardImg/blackYellow1Back.avif';
-import lightBlue1Sim from '../src/assets/categoryCardImg/lightBlue1Sim.avif';
-import whiteBlack1Sim from '../src/assets/categoryCardImg/whiteBlack1Sim.avif';
+import lightBlue1Front from './assets/categoryCardImg/lightBlue1Front.avif';
+import blackYellow1Back from './assets/categoryCardImg/blackYellow1Back.avif';
+import lightBlue1Sim from './assets/categoryCardImg/lightBlue1Sim.avif';
+import whiteBlack1Sim from './assets/categoryCardImg/whiteBlack1Sim.avif';
 
-import blackWhite2Front from '../src/assets/categoryCardImg/blackWhite2Front.avif';
-import purpleWhite2Back from '../src/assets/categoryCardImg/purpleWhite2Back.avif';
-import blueWhite2Sim from '../src/assets/categoryCardImg/blueWhite2Sim.avif';
-import BlackWhite2ThreeSim from '../src/assets/categoryCardImg/BlackWhite2ThreeSim.avif';
-import blueWhiteThree2Sim from '../src/assets/categoryCardImg/blueWhiteThree2Sim.avif';
-import purpleWhiteThree2Sim from '../src/assets/categoryCardImg/purpleWhiteThree2Sim.avif';
+import blackWhite2Front from './assets/categoryCardImg/blackWhite2Front.avif';
+import purpleWhite2Back from './assets/categoryCardImg/purpleWhite2Back.avif';
+import blueWhite2Sim from './assets/categoryCardImg/blueWhite2Sim.avif';
+import BlackWhite2ThreeSim from './assets/categoryCardImg/BlackWhite2ThreeSim.avif';
+import blueWhiteThree2Sim from './assets/categoryCardImg/blueWhiteThree2Sim.avif';
+import purpleWhiteThree2Sim from './assets/categoryCardImg/purpleWhiteThree2Sim.avif';
 
-import purpleYellow3Front from '../src/assets/categoryCardImg/purpleYellow3Front.avif';
-import lightGray3Back from '../src/assets/categoryCardImg/lightGray3Back.avif';
-import GreenThree3Sim from '../src/assets/categoryCardImg/GreenThree3Sim.avif';
-import lightGrayThree3Sim from '../src/assets/categoryCardImg/lightGrayThree3Sim.avif';
-import greenWhite3Sim from '../src/assets/categoryCardImg/greenWhite3Sim.avif';
-import purpleThree3Sim from '../src/assets/categoryCardImg/purpleThree3Sim.avif';
+import purpleYellow3Front from './assets/categoryCardImg/purpleYellow3Front.avif';
+import lightGray3Back from './assets/categoryCardImg/lightGray3Back.avif';
+import GreenThree3Sim from './assets/categoryCardImg/GreenThree3Sim.avif';
+import lightGrayThree3Sim from './assets/categoryCardImg/lightGrayThree3Sim.avif';
+import greenWhite3Sim from './assets/categoryCardImg/greenWhite3Sim.avif';
+import purpleThree3Sim from './assets/categoryCardImg/purpleThree3Sim.avif';
 
 // Basketball
-import purpleFront1 from '../src/assets/basketball/purpleFront1.avif';
-import purpleBack1 from '../src/assets/basketball/purpleBack1.avif';
-import purpleFront1Sim from '../src/assets/basketball/purpleFront1Sim.avif';
-import purpleBack1Sim from '../src/assets/basketball/purpleBack1Sim.avif';
+import purpleFront1 from './assets/basketball/purpleFront1.avif';
+import purpleBack1 from './assets/basketball/purpleBack1.avif';
+import purpleFront1Sim from './assets/basketball/purpleFront1Sim.avif';
+import purpleBack1Sim from './assets/basketball/purpleBack1Sim.avif';
 
-import blueFront2 from '../src/assets/basketball/blueFront2.avif';
-import blueBack2 from '../src/assets/basketball/blueBack2.avif';
-import blueFront2Sim from '../src/assets/basketball/blueFront2Sim.avif';
-import blueBack2Sim from '../src/assets/basketball/blueBack2Sim.avif';
+import blueFront2 from './assets/basketball/blueFront2.avif';
+import blueBack2 from './assets/basketball/blueBack2.avif';
+import blueFront2Sim from './assets/basketball/blueFront2Sim.avif';
+import blueBack2Sim from './assets/basketball/blueBack2Sim.avif';
 
-import comandoFront3 from '../src/assets/basketball/comandoFront3.avif';
-import comandoBack3 from '../src/assets/basketball/comandoBack3.avif';
-import comandoFront3Sim from '../src/assets/basketball/comandoFront3Sim.avif';
-import comandoBack3Sim from '../src/assets/basketball/comandoBack3Sim.avif';
+import comandoFront3 from './assets/basketball/comandoFront3.avif';
+import comandoBack3 from './assets/basketball/comandoBack3.avif';
+import comandoFront3Sim from './assets/basketball/comandoFront3Sim.avif';
+import comandoBack3Sim from './assets/basketball/comandoBack3Sim.avif';
 
 // Baseball
-import whiteBlueFront1 from '../src/assets/baseball/whiteBlueFront1.avif';
-import whiteBlueBack1 from '../src/assets/baseball/whiteBlueBack1.avif';
-import whiteBlueFront1Sim from '../src/assets/baseball/whiteBlueFront1Sim.avif';
-import whiteBlueBack1Sim from '../src/assets/baseball/whiteBlueBack1Sim.avif';
+import whiteBlueFront1 from './assets/baseball/whiteBlueFront1.avif';
+import whiteBlueBack1 from './assets/baseball/whiteBlueBack1.avif';
+import whiteBlueFront1Sim from './assets/baseball/whiteBlueFront1Sim.avif';
+import whiteBlueBack1Sim from './assets/baseball/whiteBlueBack1Sim.avif';
 
-import yellowFront1 from '../src/assets/baseball/yellowFront1.avif';
-import yellowBack1 from '../src/assets/baseball/yellowBack1.avif';
-import yellowFront1Sim from '../src/assets/baseball/yellowFront1Sim.avif';
-import yellowBack1Sim from '../src/assets/baseball/yellowBack1Sim.avif';
+import yellowFront1 from './assets/baseball/yellowFront1.avif';
+import yellowBack1 from './assets/baseball/yellowBack1.avif';
+import yellowFront1Sim from './assets/baseball/yellowFront1Sim.avif';
+import yellowBack1Sim from './assets/baseball/yellowBack1Sim.avif';
 
-import whiteBlackFront1 from '../src/assets/baseball/whiteBlackFront1.avif';
-import whiteBlackBack1 from '../src/assets/baseball/whiteBlackBack1.avif';
-import whiteBlackFront1Sim from '../src/assets/baseball/whiteBlackFront1Sim.avif';
-import whiteBlackBack1Sim from '../src/assets/baseball/whiteBlackBack1Sim.avif';
+import whiteBlackFront1 from './assets/baseball/whiteBlackFront1.avif';
+import whiteBlackBack1 from './assets/baseball/whiteBlackBack1.avif';
+import whiteBlackFront1Sim from './assets/baseball/whiteBlackFront1Sim.avif';
+import whiteBlackBack1Sim from './assets/baseball/whiteBlackBack1Sim.avif';
 
 
 const categoryCardImg = [

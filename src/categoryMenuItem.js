@@ -1,4 +1,4 @@
-import categoryLogo from '../src/assets/categoryLogo.webp';
+import categoryLogo from './assets/categoryLogo.webp';
 
 const navItems = [
   {

@@ -1,30 +1,30 @@
 
-import redFront from '../src/assets/SizePageShirtImg/redFront.avif';
-import redBack from '../src/assets/SizePageShirtImg/redBack.avif';
-import redFrontSim from '../src/assets/SizePageShirtImg/redFrontSim.avif';
-import redBackSim from '../src/assets/SizePageShirtImg/redBackSim.avif';
+import redFront from './assets/SizePageShirtImg/redFront.avif';
+import redBack from './assets/SizePageShirtImg/redBack.avif';
+import redFrontSim from './assets/SizePageShirtImg/redFrontSim.avif';
+import redBackSim from './assets/SizePageShirtImg/redBackSim.avif';
 
-import PinkGrayFront from '../src/assets/SizePageShirtImg/PinkGrayFront.avif';
-import PinkGrayBack from '../src/assets/SizePageShirtImg/PinkGrayBack.avif';
-import PinkGrayFrontSim from '../src/assets/SizePageShirtImg/PinkGrayFrontSim.avif';
-import PinkGrayBackSim from '../src/assets/SizePageShirtImg/PinkGrayBackSim.avif';
+import PinkGrayFront from './assets/SizePageShirtImg/PinkGrayFront.avif';
+import PinkGrayBack from './assets/SizePageShirtImg/PinkGrayBack.avif';
+import PinkGrayFrontSim from './assets/SizePageShirtImg/PinkGrayFrontSim.avif';
+import PinkGrayBackSim from './assets/SizePageShirtImg/PinkGrayBackSim.avif';
 
-import blackBlueFront from '../src/assets/SizePageShirtImg/blackBlueFront.avif';
-import blackBlueBack from '../src/assets/SizePageShirtImg/blackBlueBack.avif';
-import blackBlueFrontSim from '../src/assets/SizePageShirtImg/blackBlueFrontSim.avif';
-import blackBlueBackSim from '../src/assets/SizePageShirtImg/blackBlueBackSim.avif';
+import blackBlueFront from './assets/SizePageShirtImg/blackBlueFront.avif';
+import blackBlueBack from './assets/SizePageShirtImg/blackBlueBack.avif';
+import blackBlueFrontSim from './assets/SizePageShirtImg/blackBlueFrontSim.avif';
+import blackBlueBackSim from './assets/SizePageShirtImg/blackBlueBackSim.avif';
 
-import manBlackFront from '../src/assets/SizePageShirtImg/manBlackFront.avif';
-import blackFront from '../src/assets/SizePageShirtImg/blackFront.avif';
-import blackBack from '../src/assets/SizePageShirtImg/blackBack.avif';
-import blackFrontSim from '../src/assets/SizePageShirtImg/blackFrontSim.avif';
-import blackBackSim from '../src/assets/SizePageShirtImg/blackBackSim.avif';
+import manBlackFront from './assets/SizePageShirtImg/manBlackFront.avif';
+import blackFront from './assets/SizePageShirtImg/blackFront.avif';
+import blackBack from './assets/SizePageShirtImg/blackBack.avif';
+import blackFrontSim from './assets/SizePageShirtImg/blackFrontSim.avif';
+import blackBackSim from './assets/SizePageShirtImg/blackBackSim.avif';
 
-import manRedFront from '../src/assets/SizePageShirtImg/manRedFront.avif';
-import redFrontS from '../src/assets/SizePageShirtImg/redFrontS.avif';
-import RedBackS from '../src/assets/SizePageShirtImg/RedBackS.avif';
-import redFrontSSim from '../src/assets/SizePageShirtImg/redFrontSSim.avif';
-import redBackSSim from '../src/assets/SizePageShirtImg/redBackSSim.avif';
+import manRedFront from './assets/SizePageShirtImg/manRedFront.avif';
+import redFrontS from './assets/SizePageShirtImg/redFrontS.avif';
+import RedBackS from './assets/SizePageShirtImg/RedBackS.avif';
+import redFrontSSim from './assets/SizePageShirtImg/redFrontSSim.avif';
+import redBackSSim from './assets/SizePageShirtImg/redBackSSim.avif';
 
 const sPShirtData = [
   {

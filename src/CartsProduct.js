@@ -1,29 +1,29 @@
 
-import blueWhiteFront1 from '../src/assets/cartsImg/blueWhiteFront1.avif';
-import blueWhiteFront from '../src/assets/cartsImg/blueWhiteFront.avif';
-import blackWhiteBack1 from '../src/assets/cartsImg/blackWhiteBack1.avif';
-import purpleSimFront1 from '../src/assets/cartsImg/purpleSimFront1.avif';
-import red1SimBack from '../src/assets/cartsImg/red1SimBack.avif';
+import blueWhiteFront1 from './assets/cartsImg/blueWhiteFront1.avif';
+import blueWhiteFront from './assets/cartsImg/blueWhiteFront.avif';
+import blackWhiteBack1 from './assets/cartsImg/blackWhiteBack1.avif';
+import purpleSimFront1 from './assets/cartsImg/purpleSimFront1.avif';
+import red1SimBack from './assets/cartsImg/red1SimBack.avif';
 
-import man2 from '../src/assets/cartsImg/man2.avif';
-import blue2Front from '../src/assets/cartsImg/blue2Front.avif';
-import blue2Back from '../src/assets/cartsImg/blue2Back.avif';
-import blue2SimFront from '../src/assets/cartsImg/blue2SimFront.avif';
-import blue2SimBack from '../src/assets/cartsImg/blue2SimBack.avif';
+import man2 from './assets/cartsImg/man2.avif';
+import blue2Front from './assets/cartsImg/blue2Front.avif';
+import blue2Back from './assets/cartsImg/blue2Back.avif';
+import blue2SimFront from './assets/cartsImg/blue2SimFront.avif';
+import blue2SimBack from './assets/cartsImg/blue2SimBack.avif';
 
-import brown3Front from '../src/assets/cartsImg/brown3Front.avif';
-import purple3Back from '../src/assets/cartsImg/purple3Back.avif';
-import black3SimFront from '../src/assets/cartsImg/black3SimFront.avif';
-import brown3SimBack from '../src/assets/cartsImg/brown3SimBack.avif';
-import purple3SimSecond from '../src/assets/cartsImg/purple3SimSecond.avif';
-import blackSim3Third from '../src/assets/cartsImg/blackSim3Third.avif';
+import brown3Front from './assets/cartsImg/brown3Front.avif';
+import purple3Back from './assets/cartsImg/purple3Back.avif';
+import black3SimFront from './assets/cartsImg/black3SimFront.avif';
+import brown3SimBack from './assets/cartsImg/brown3SimBack.avif';
+import purple3SimSecond from './assets/cartsImg/purple3SimSecond.avif';
+import blackSim3Third from './assets/cartsImg/blackSim3Third.avif';
 
-import yellow4Front from '../src/assets/cartsImg/yellow4Front.avif';
-import red4Back from '../src/assets/cartsImg/red4Back.avif';
-import green4SimFront from '../src/assets/cartsImg/green4SimFront.avif';
-import yellow4SimBack from '../src/assets/cartsImg/yellow4SimBack.avif';
-import green4SimSecond from '../src/assets/cartsImg/green4SimSecond.avif';
-import red4SimThird from '../src/assets/cartsImg/red4SimThird.avif';
+import yellow4Front from './assets/cartsImg/yellow4Front.avif';
+import red4Back from './assets/cartsImg/red4Back.avif';
+import green4SimFront from './assets/cartsImg/green4SimFront.avif';
+import yellow4SimBack from './assets/cartsImg/yellow4SimBack.avif';
+import green4SimSecond from './assets/cartsImg/green4SimSecond.avif';
+import red4SimThird from './assets/cartsImg/red4SimThird.avif';
 
 const CartsProduct = [
   {
