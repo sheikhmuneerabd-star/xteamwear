@@ -1,17 +1,17 @@
-import whiteBlueFront1 from './assets/Baseball/whiteBlueFront1.avif';
-import whiteBlueBack1 from './assets/Baseball/whiteBlueBack1.avif';
-import whiteBlueFront1Sim from './assets/Baseball/whiteBlueFront1Sim.avif';
-import whiteBlueBack1Sim from './assets/Baseball/whiteBlueBack1Sim.avif';
+import whiteBlueFront1 from './assets/baseball/whiteBlueFront1.avif';
+import whiteBlueBack1 from './assets/baseball/whiteBlueBack1.avif';
+import whiteBlueFront1Sim from './assets/baseball/whiteBlueFront1Sim.avif';
+import whiteBlueBack1Sim from './assets/baseball/whiteBlueBack1Sim.avif';
 
-import yellowFront1 from './assets/Baseball/yellowFront1.avif';
-import yellowBack1 from './assets/Baseball/yellowBack1.avif';
-import yellowFront1Sim from './assets/Baseball/yellowFront1Sim.avif';
-import yellowBack1Sim from './assets/Baseball/yellowBack1Sim.avif';
+import yellowFront1 from './assets/baseball/yellowFront1.avif';
+import yellowBack1 from './assets/baseball/yellowBack1.avif';
+import yellowFront1Sim from './assets/baseball/yellowFront1Sim.avif';
+import yellowBack1Sim from './assets/baseball/yellowBack1Sim.avif';
 
-import whiteBlackFront1 from './assets/Baseball/whiteBlackFront1.avif';
-import whiteBlackBack1 from './assets/Baseball/whiteBlackBack1.avif';
-import whiteBlackFront1Sim from './assets/Baseball/whiteBlackFront1Sim.avif';
-import whiteBlackBack1Sim from './assets/Baseball/whiteBlackBack1Sim.avif';
+import whiteBlackFront1 from './assets/baseball/whiteBlackFront1.avif';
+import whiteBlackBack1 from './assets/baseball/whiteBlackBack1.avif';
+import whiteBlackFront1Sim from './assets/baseball/whiteBlackFront1Sim.avif';
+import whiteBlackBack1Sim from './assets/baseball/whiteBlackBack1Sim.avif';
 
 const lastCateCard = [
     {
